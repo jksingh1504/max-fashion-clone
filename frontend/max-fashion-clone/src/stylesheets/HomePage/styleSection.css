@@ -1,0 +1,25 @@
+.style_spotlight>div{
+    max-width: 1280px;
+    margin: auto;
+    padding: 0px 20px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
+
+.style_spotlight>div img{
+    width: 100%;
+}
+
+.whats_your_style>div{
+    max-width: 1280px;
+    margin: auto;
+    padding: 0px 20px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 16px;
+}
+
+.whats_your_style>div img{
+    width: 100%;
+}

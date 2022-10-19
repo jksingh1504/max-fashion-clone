@@ -1,0 +1,8 @@
+.budget_zone>div{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: 0px 16px;
+    gap: 16px;
+    margin: auto;
+    max-width: 1280px;
+}

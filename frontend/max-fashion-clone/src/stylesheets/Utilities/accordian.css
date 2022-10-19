@@ -1,0 +1,18 @@
+.accordian{
+    transition: height 0.3s;
+    overflow: scroll;
+    position: absolute;
+    z-index: 3;
+    border-radius: 3px;
+    /* width: 100%; */
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.accordian::-webkit-scrollbar{
+    display: none;
+}
+
+.accordian>div{
+    padding: 16px;
+}

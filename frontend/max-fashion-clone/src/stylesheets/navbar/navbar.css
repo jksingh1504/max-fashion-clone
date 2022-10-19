@@ -1,0 +1,131 @@
+#navbar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(min-content, 416px));
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 70px;
+  padding: 0px 20px;
+  justify-content: center;
+  background-color: #f7f8f7;
+}
+
+#navbar b {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(39, 39, 39);
+}
+
+#navbar > div {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.nav_child_1 > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  padding: 0px 16px;
+  cursor: pointer;
+}
+
+:is(.women,.men,.girls,.boys):hover {
+  background-color: white;
+}
+
+.women{
+  margin-left: 6px;
+}
+
+.nav_child_1 > div > div {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: 68px;
+  /* border: 1px solid black; */
+  visibility: hidden;
+  width: 100%;
+  padding: 20px 0px;
+  background-color: white;
+}
+
+.nav_child_1 > div:hover > div {
+  visibility: visible;
+  cursor: pointer;
+}
+
+.nav_child_1 > div > div > div {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  max-width: 1360px;
+  padding: 0px 40px;
+  margin: auto;
+  font-size: 13px;
+  line-height: 21px;
+}
+
+.nav_child_1 > div > div > div > div {
+  padding-left: 1.5vw;
+}
+
+.nav_child_1 > div > div > div > div:nth-child(n + 2) {
+  border-left: 1px solid rgb(234, 234, 234);
+}
+
+.nav_child_2 {
+  margin-left: -70px;
+}
+
+.nav_child_2 span {
+  position: relative;
+  left: 34px;
+  color: rgb(149, 149, 149);
+}
+
+.nav_child_2 input {
+  height: 40px;
+  background-color: #ecedeb;
+  padding-left: 50px;
+  width: 100%;
+}
+
+.nav_child_2 input:focus {
+  outline: none;
+}
+
+#navbar .nav_child_3 {
+  justify-content: right;
+  gap: 30px;
+}
+
+.cart_count {
+  position: absolute;
+  top: 0;
+  left: 14px;
+  background-color: #303ab2;
+  color: white;
+  width: 18px;
+  height: 18px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 12;
+}
+
+.offer_nav{
+  margin-top: 70px;
+  background-color: #303ab2;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  padding: 10px 0px;
+  margin-bottom: 10px;
+}

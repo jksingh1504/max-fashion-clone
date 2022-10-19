@@ -1,0 +1,26 @@
+.shop_for_nav{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
+
+.shop_for_nav>div{
+    display: flex;
+    gap: 10px;
+    border: 1px solid rgb(188, 188, 188);
+    border-radius: 2px;
+    padding: 8px;
+    padding-right: 20px;
+    align-items: center;
+    min-width: fit-content;
+}
+
+.shop_for_nav>div>p{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.shop_for_nav>div img{
+    width: 40px;
+}

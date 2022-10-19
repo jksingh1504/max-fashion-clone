@@ -1,0 +1,22 @@
+.festive_must>div{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    padding: 0px 16px;
+    margin: auto;
+    max-width: 1280px;
+}
+
+.festive_must>div>div{
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    text-align: center;
+}
+
+.festive_must>div img{
+    width: 100%;
+    position: relative;
+    z-index: -1;
+}
+

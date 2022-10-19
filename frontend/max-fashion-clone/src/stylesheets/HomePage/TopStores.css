@@ -1,0 +1,8 @@
+.top_stores>div,.hot_trends>div{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 16px;
+    padding: 0px 16px;
+    margin: auto;
+    max-width: 1280px;
+}

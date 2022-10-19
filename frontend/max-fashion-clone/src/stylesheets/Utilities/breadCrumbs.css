@@ -1,0 +1,11 @@
+.bread_crumbs{
+    display: flex;
+    align-items: center;
+    color:grey
+}
+
+.bread_crumbs>span:nth-child(2n+1){
+    font-size: 12px;
+    margin-top: -2px;
+    color:rgb(57, 57, 57)
+}

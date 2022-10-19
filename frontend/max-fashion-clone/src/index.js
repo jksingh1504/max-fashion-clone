@@ -1,16 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
-import { store } from './redux/store';
-import {BrowserRouter} from "react-router-dom"
-import MainRoutes from './MainRoutes';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import { BrowserRouter } from "react-router-dom";
+import MainRoutes from "./MainRoutes";
+import {ChakraProvider} from "@chakra-ui/react"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
-      <MainRoutes/>
+      <ChakraProvider>
+        <MainRoutes />
+      </ChakraProvider>
     </BrowserRouter>
   </Provider>
 );

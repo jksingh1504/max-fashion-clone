@@ -1,0 +1,30 @@
+.filter{
+    display: grid;
+    grid-template-columns: repeat(6,auto);
+    gap:20px;
+    padding: 26px 0px;
+    background-color: rgb(245, 245, 245);
+}
+
+.filter>div>div:first-child{
+    border: 1px solid rgb(209, 209, 209);
+    font-weight: 600;
+    padding: 6px 16px;
+    display: flex;
+    justify-content: space-between;
+    color:grey;
+    border-radius: 3px;
+}
+
+.filter>div span{
+    color:black
+}
+
+.filter_modal{
+    transition: height 0.3s;
+    overflow: scroll;
+    position: absolute;
+    z-index: 3;
+    width: 144%;
+    background-color: white;
+}

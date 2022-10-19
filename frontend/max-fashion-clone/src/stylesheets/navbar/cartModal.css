@@ -1,0 +1,30 @@
+.cart_modal {
+  transition: height 0.5s;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 2px;
+  position: absolute;
+  top: 48px;
+  z-index: 14;
+  right: 0;
+  overflow: scroll;
+  background-color: white;
+}
+
+.cart_modal > div:last-child {
+  position: sticky;
+  bottom: -1px;
+  background-color: white;
+  z-index: 15;
+  width: 100%;
+  padding: 10px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.cart_modal::-webkit-scrollbar {
+  display: none;
+}

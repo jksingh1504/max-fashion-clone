@@ -1,0 +1,21 @@
+.shop_by_category{
+    max-width:1270px;
+    padding: 10px;
+    margin:auto;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+}
+
+.shop_by_category>div{
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    text-align: center;
+}
+
+.shop_by_category>div img{
+    position: relative;
+    z-index: -1;
+    width: 100%;
+}
