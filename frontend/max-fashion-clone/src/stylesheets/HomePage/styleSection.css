@@ -23,3 +23,16 @@
 .whats_your_style>div img{
     width: 100%;
 }
+
+@media all and (min-width: 0px) and (max-width: 600px){
+
+    html > body h1{
+        font-size: 26px;
+        padding: 0px 20px;
+    }
+
+    .style_spotlight>div,.whats_your_style>div{
+        grid-template-columns: repeat(1,1fr);
+        gap: 20px 0px;
+    }
+}

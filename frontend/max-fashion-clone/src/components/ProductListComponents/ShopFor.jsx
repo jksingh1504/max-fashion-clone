@@ -1,5 +1,5 @@
 import React from "react";
-import "../../stylesheets/HomePage/ShopForNav.css";
+import "../../stylesheets/ProductPage/ShopForNav.css";
 
 const ShopFor = () => {
   return (

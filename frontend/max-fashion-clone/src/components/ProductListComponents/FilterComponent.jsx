@@ -18,7 +18,7 @@ const FilterComponent = ({ currentFilter }) => {
         <p>Price</p>
         <span className="material-icons">expand_more</span>
       </div>
-      <Accordian height={filterModalHeight} style={{ width: "144%" }} />
+      <Accordian height={filterModalHeight} style={{ width: "105%" }} />
     </div>
   );
 };

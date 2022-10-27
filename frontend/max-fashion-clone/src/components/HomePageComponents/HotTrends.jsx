@@ -29,7 +29,7 @@ const HotTrends = () => {
       <br />
       <br />
       <br />
-      <div style={{ margin: "auto", maxWidth: "1250px", width: "95%" }}>
+      <div className="end_seperator" style={{ margin: "auto", maxWidth: "1250px", width: "95%" }}>
         <img
           src="https://lmsin.net/cdn-cgi/image/w=1232,q=60,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/desktop-department-9modularblock-oneBythree-A-Women-15SEP2022.png"
           alt=""
@@ -37,7 +37,7 @@ const HotTrends = () => {
       </div>
       <br />
       <br />
-      <hr style={{ maxWidth: "1240px", margin: "auto", width: "92vw" }} />{" "}
+      <hr style={{ maxWidth: "1240px", margin: "auto", width: "92vw" }} />
     </>
   );
 };

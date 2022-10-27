@@ -57,3 +57,16 @@
     background-color: #303ab2;
     transition: 0.8s;
 }
+
+
+@media all and (min-width: 0px) and (max-width: 600px){
+
+    #slider_container span{
+        font-size: 18px;
+        padding-left: 2px;
+    }
+
+    #slider>div>div img{
+        aspect-ratio: 1.15;
+    }
+}

@@ -16,6 +16,10 @@
     min-width: fit-content;
 }
 
+.shop_for_nav>div:hover{
+    border: 1px solid blue;
+}
+
 .shop_for_nav>div>p{
     font-weight: 600;
     font-size: 14px;
@@ -23,4 +27,25 @@
 
 .shop_for_nav>div img{
     width: 40px;
+}
+
+@media all and (min-width:0px) and (max-width:600px){
+    .shop_for_nav{
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        gap: 10px;
+    }
+
+    .shop_for_nav>div{
+        padding: 4px;
+        padding-right: 14px;
+    }
+
+    .shop_for_nav>div img{
+        width: 30px;
+    }
+
+    .shop_for_nav::-webkit-scrollbar{
+        display: none;
+    }
 }

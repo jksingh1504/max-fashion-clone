@@ -1,0 +1,17 @@
+#cart_container {
+  display: grid;
+  grid-template-columns: auto minmax(320px, 32%);
+  gap: 24px;
+}
+
+#cart_container > div:first-child {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+}
+
+@media all and (min-width: 0px) and (max-width: 700px) {
+  #cart_container {
+    grid-template-columns: repeat(1,1fr);
+  }
+}

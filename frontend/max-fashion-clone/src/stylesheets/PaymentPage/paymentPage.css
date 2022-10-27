@@ -1,0 +1,11 @@
+#payment_body {
+  display: grid;
+  grid-template-columns: auto minmax(320px, 35%);
+  gap: 30px;
+}
+
+@media all and (min-width: 0px) and (max-width: 700px) {
+  #payment_body {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

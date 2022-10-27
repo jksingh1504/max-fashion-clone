@@ -1,9 +1,13 @@
 .filter{
     display: grid;
-    grid-template-columns: repeat(6,auto);
+    grid-template-columns: repeat(auto-fit,minmax(160px,auto));
     gap:20px;
-    padding: 26px 0px;
+    padding: 26px 8px;
     background-color: rgb(245, 245, 245);
+}
+
+.filter::-webkit-scrollbar{
+    display: none;
 }
 
 .filter>div>div:first-child{
@@ -25,6 +29,6 @@
     overflow: scroll;
     position: absolute;
     z-index: 3;
-    width: 144%;
+    width: 100%;
     background-color: white;
 }

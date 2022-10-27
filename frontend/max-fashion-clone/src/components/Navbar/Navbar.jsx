@@ -340,7 +340,7 @@ const Navbar = () => {
         </div>
         <div className="nav_child_3">
           <div>
-            <b>Sign-up/Sign-in</b>
+            <b>Sign-up / Sign-in</b>
           </div>
           <div>
             <span
@@ -376,8 +376,7 @@ const Navbar = () => {
       </div>
       <div className="offer_nav">
         <p>
-          If you liked my Work Support me by making any purchase on this
-          clone-Website
+          made with ❤️ by Jyoti Kamal Singh, 2022 All Rights Reseved
         </p>
       </div>
     </>

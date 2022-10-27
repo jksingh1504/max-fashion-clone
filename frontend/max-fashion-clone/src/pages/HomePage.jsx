@@ -10,6 +10,7 @@ import StyleSpotlight from "../components/HomePageComponents/StyleSpotlight";
 import WhatsYourStyle from "../components/HomePageComponents/WhatsYourStyle";
 import TopStores from "../components/HomePageComponents/TopStores";
 import YouthStore from "../components/HomePageComponents/YouthStore";
+import MobileNav from "../components/Navbar/MobileNav";
 
 const HomePage = () => {
   /* code for making active slider */
@@ -28,6 +29,7 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
+      <MobileNav/>
       <Slider props={{ count, setCount, next_slide, prev_slide }} />
       <ShopByCategory />
       <StyleSpotlight/>

@@ -1,7 +1,8 @@
 .bread_crumbs{
     display: flex;
     align-items: center;
-    color:grey
+    color:grey;
+    margin-top: -10px;
 }
 
 .bread_crumbs>span:nth-child(2n+1){

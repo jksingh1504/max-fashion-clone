@@ -1,0 +1,106 @@
+#mobile_nav,#mob_sticky_nav,#mobile_nav+div,#mob_sticky_nav + .offer_nav{
+    height: 0px;
+    padding: 0px;
+    visibility: hidden;
+    margin-top: 0px;
+}
+
+@media all and (min-width: 0px) and (max-width: 800px) {
+  #mobile_nav {
+    visibility: visible;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100%;
+    background-color: white;
+  }
+
+  #mobile_nav > div > div {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  #mobile_nav > div:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 24px;
+    background-color: white;
+  }
+
+  #mobile_nav + div {
+    visibility: visible;
+    height: 52px;
+    /* border: 1px solid black; */
+    margin-top: 55px;
+    padding: 4px 24px;
+    text-align: center;
+  }
+
+  #mobile_nav + div input {
+    margin: auto;
+    width: 100%;
+    border: 1px solid rgb(221, 221, 221);
+    padding: 8px 20px;
+  }
+
+  .mobile_cart_count {
+    position: absolute;
+    top: 2px;
+    left: 14px;
+    background-color: #303ab2;
+    color: white;
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    font-weight: 700;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    z-index: 12;
+  }
+
+  #mob_sticky_nav {
+    visibility: visible;
+    position: absolute;
+    top: 47px;
+    height: fit-content;
+    z-index: 10;
+    width: 100%;
+  }
+
+  #mob_sticky_nav {
+    display: flex;
+    gap: 12px;
+    padding: 6px 24px;
+    overflow-x: scroll;
+    position: sticky;
+    background-color: white;
+    z-index: 10;
+    top: 54px;
+  }
+
+  #mob_sticky_nav > div {
+    padding: 10px 0px;
+    width: 25%;
+    min-width: 100px;
+    border: 1px solid rgb(210, 210, 210);
+    text-align: center;
+    font-weight: 600;
+    border-radius: 2px;
+    font-size: 16px;
+  }
+
+  #mob_sticky_nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  #mob_sticky_nav + .offer_nav {
+    margin-top: 0px;
+    visibility: visible;
+    height: fit-content;
+    padding: 10px 24px;
+  }
+}
