@@ -4,13 +4,17 @@
     position: absolute;
     z-index: 3;
     border-radius: 3px;
-    /* width: 100%; */
     background-color: white;
+    max-height: 160px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-.accordian::-webkit-scrollbar{
-    display: none;
+.accordian::-webkit-scrollbar {
+    width: 8px;
+}
+.accordian::-webkit-scrollbar-thumb {
+    background-color: #303ab2;
+    border-radius: 5px;
 }
 
 .accordian>div{

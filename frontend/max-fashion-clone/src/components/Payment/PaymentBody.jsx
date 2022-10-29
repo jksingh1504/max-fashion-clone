@@ -22,32 +22,32 @@ const PaymentBody = () => {
             <div>
               <b>Mobile Number</b>
               <br />
-              <input type="text" required placeholder="Enter your Name" />
+              <input type="text" required placeholder="Enter your mobile number" />
             </div>
             <div>
               <b>Pincode</b>
               <br />
-              <input type="text" required placeholder="Enter your Name" />
+              <input type="text" required placeholder="Enter your area Pincode" />
             </div>
             <div>
               <b>City</b>
               <br />
-              <input type="text" required placeholder="Enter your Name" />
+              <input type="text" required placeholder="Enter your City" />
             </div>
             <div>
               <b>State</b>
               <br />
-              <input type="text" required placeholder="Enter your Name" />
+              <input type="text" required placeholder="Enter your State" />
             </div>
             <div>
               <b>Building name or number</b>
               <br />
-              <input type="text" required placeholder="Enter your Name" />
+              <input type="text" required placeholder="Enter your Building Number" />
             </div>
             <div>
               <b>Street name or number</b>
               <br />
-              <input type="text" required placeholder="Enter your Name" />
+              <input type="text" required placeholder="Enter your street name or number" />
             </div>
             <div>
               <b>
@@ -59,7 +59,7 @@ const PaymentBody = () => {
                 </span>
               </b>
               <br />
-              <input type="text" placeholder="Enter your Name" />
+              <input type="text" placeholder="Enter Landmark near you" />
             </div>
             <div>
               <b>

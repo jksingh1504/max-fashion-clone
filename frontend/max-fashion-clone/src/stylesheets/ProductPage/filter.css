@@ -18,6 +18,7 @@
     justify-content: space-between;
     color:grey;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 .filter>div span{

@@ -1,10 +1,13 @@
 import React from "react";
 import { useRef } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "../../stylesheets/ProductPage/productCard.css";
 import Accordian from "../Utilities/Accordian";
+import SizeSelector from "./SizeSelector";
 
-const ProductCard = () => {
+const ProductCard = ({ ele }) => {
+  // console.log(ele);
   const [color, setColor] = useState("0px");
   const [size, setSize] = useState("0px");
   const currentModal = useRef(() => {
@@ -17,19 +20,21 @@ const ProductCard = () => {
       className="product_card"
     >
       <div>
-        <img
-          src="https://lmsin.net/cdn-cgi/image/h=345,w=345,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011295251-Pink-ROSEPINKP-1000011295251-12062022_01-2100.jpg"
-          alt=""
-        />
+        <Link to="/productPage">
+          <img src={ele["jss17662 src"]} alt="" />
+        </Link>
         <span class="material-icons">favorite_border</span>
       </div>
       <p style={{ fontSize: "20px", fontWeight: "600", margin: "10px 0px" }}>
         <span style={{ fontSize: "12px" }} className="material-icons">
           currency_rupee
-        </span>{" "}
-        999
+        </span>
+        {" " + ele.price}
+        <span style={{ color: "blue", marginLeft: "30px" }}>
+          {"(Brand: " + ele.brand + ")"}
+        </span>
       </p>
-      <p style={{ fontSize: "14px" }}>MAX Women Printed Night Dress</p>
+      <p style={{ fontSize: "14px" }}>{ele.jss17663}</p>
       <br />
       <div className="add_to_cart_section">
         <div>
@@ -55,8 +60,10 @@ const ProductCard = () => {
             </div>
             <Accordian
               height={color}
-              style={{ bottom: "54px", left: "0", borderRadius: "3px" }}
-            />
+              style={{ bottom: "54px",padding:"0px 10px",color:"red", left: "0", borderRadius: "3px" }}
+            >
+              <b>sorry!.., no colour options available for this product</b>
+            </Accordian>
           </div>
           <div style={{ position: "relative" }}>
             <div
@@ -74,8 +81,8 @@ const ProductCard = () => {
             </div>
             <Accordian
               height={size}
-              style={{ bottom: "54px", left: "0", borderRadius: "3px" }}
-            />
+              style={{ bottom: "54px",width:"100%", left: "0", borderRadius: "3px" }}
+            ><SizeSelector size={ele.size}/></Accordian>
           </div>
         </div>
         <button>ADD TO BASKET</button>

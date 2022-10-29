@@ -1,7 +1,8 @@
 import React from "react";
 import "../../stylesheets/Utilities/accordian.css"
+import SizeFilter from "../Filters/SizeFilter";
 
-const Accordian = ({ height = "0px",style }) => {
+const Accordian = ({ children,height = "0px",style }) => {
     
   return (
     <div
@@ -11,7 +12,7 @@ const Accordian = ({ height = "0px",style }) => {
       }}
       className="accordian"
     >
-      <div>write your code here</div>
+      {children}
     </div>
   );
 };

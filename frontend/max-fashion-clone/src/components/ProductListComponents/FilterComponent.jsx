@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import SizeFilter from "../Filters/SizeFilter";
 import Accordian from "../Utilities/Accordian";
 
-const FilterComponent = ({ currentFilter }) => {
+const FilterComponent = ({ ele,currentFilter }) => {
   const [filterModalHeight, setFilterModalHeight] = useState("0px");
   return (
     <div style={{ position: "relative" }}>
@@ -15,10 +16,12 @@ const FilterComponent = ({ currentFilter }) => {
           } else setFilterModalHeight("0px");
         }}
       >
-        <p>Price</p>
+        <p>{ele.filter}</p>
         <span className="material-icons">expand_more</span>
       </div>
-      <Accordian height={filterModalHeight} style={{ width: "105%" }} />
+      <Accordian height={filterModalHeight} style={{ width: "105%" }}>
+        {ele.child}
+      </Accordian>
     </div>
   );
 };

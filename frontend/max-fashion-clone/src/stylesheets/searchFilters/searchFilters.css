@@ -1,0 +1,22 @@
+.search_filter{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.search_filter>div{
+    width: 100%;
+}
+
+.search_filter>div>label{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: black;
+    cursor: pointer;
+}
+
+.search_filter :is(input[type="checkbox"],input[type="radio"]){
+    accent-color: blue;
+    cursor: pointer;
+}

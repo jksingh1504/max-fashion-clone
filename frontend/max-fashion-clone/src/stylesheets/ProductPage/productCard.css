@@ -24,6 +24,7 @@
     position: relative;
     z-index: -1;
     border-radius: 3px;
+    aspect-ratio: 0.8;
 }
 
 .product_card>div:first-child>span{
@@ -56,6 +57,7 @@
     padding: 8px;
     height: 54px;
     width: 100%;
+    cursor: pointer;
 }
 
 .add_to_cart_section img{

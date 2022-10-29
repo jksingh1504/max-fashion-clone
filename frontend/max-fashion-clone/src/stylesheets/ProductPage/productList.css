@@ -11,7 +11,7 @@
 
 .total_and_sort > div {
   display: flex;
-  gap: 20px;
+  gap: 40px;
   align-items: center;
 }
 
@@ -23,6 +23,7 @@
   border-radius: 3px;
   padding: 6px 16px;
   min-width: 220px;
+  cursor: pointer;
 }
 
 .sort_modal {
