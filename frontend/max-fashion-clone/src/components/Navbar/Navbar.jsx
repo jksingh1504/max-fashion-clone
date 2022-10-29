@@ -15,8 +15,7 @@ import * as action from "../../redux/AppRedux/action";
 const Navbar = () => {
   const [cartHeight, setCartHeight] = useState("0px");
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const user = useSelector((store) => store.AppReducer.user);
-  const cart=useSelector(store=>store.AppReducer.cart)
+  const {cart,user} = useSelector((store) => store.AppReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -1,11 +1,23 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "../../stylesheets/navbar/mobileNav.css";
 import MobStickyNav from "./MobStickyNav";
+import * as action from "../../redux/AppRedux/action"
 
 const MobileNav = () => {
 
-  const cart=useSelector(store=>store.AppReducer.cart)
+  const {cart,user}=useSelector(store=>store.AppReducer)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetch(`https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${user._id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(action.set_cart(data));
+      });
+  }, [dispatch, user]);
+
+
   return (
     <>
       <div id="mobile_nav">
