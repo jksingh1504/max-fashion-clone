@@ -1,18 +1,28 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import * as action from "../../redux/AppRedux/action"
 
 const SizeSelector = ({ size }) => {
-  let x=Math.random()+Math.random()+""
-  const handleChange = () => {};
+
+  const product_size=useSelector(store=>store.AppReducer.product_size)
+  const dispatch=useDispatch()
+  
+
+  const handleChange = (e) => {
+    // console.log(e.target.value)
+    // return
+    dispatch(action.set_product_size(e.target.value))
+  };
   return (
     <div className="search_filter">
       {size.map((ele, indx) => {
         return (
           <div key={indx}>
-            <label htmlFor={x}>
+            <label>
               <input
+                checked={product_size===ele}
                 value={ele}
                 onChange={handleChange}
-                id={x}
                 type="checkbox"
               />
               <b>{ele}</b>

@@ -1,8 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import "../../stylesheets/navbar/mobileNav.css";
 import MobStickyNav from "./MobStickyNav";
 
 const MobileNav = () => {
+  const cart=useSelector(store=>store.AppReducer.cart)
   return (
     <>
       <div id="mobile_nav">
@@ -50,7 +52,7 @@ const MobileNav = () => {
               >
                 shopping_bag
               </span>
-              <span className="mobile_cart_count">3</span>
+              <span className="mobile_cart_count">{cart.length}</span>
             </div>
           </div>
         </div>

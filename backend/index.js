@@ -6,6 +6,7 @@ const allProducts = require("./model/product.model");
 const User = require("./model/User.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const cart_product = require("./model/cart.model");
 
 const app = express();
 const PORT = process.env.PORT;
@@ -113,18 +114,79 @@ app.post("/max-fashion/login", async (req, res) => {
     },
     "SECRET"
   );
-  return res
-    .status(200)
-    .json({
-      message: "Login sucessful",
-      error: false,
+  return res.status(200).json({
+    message: "Login sucessful",
+    error: false,
+
+    user: {
+      _id: existinguser._id,
+      user_name: existinguser.user_name,
+      email: existinguser.email,
       token,
-      user: {
-        _id: existinguser._id,
-        user_name: existinguser.user_name,
-        email: existinguser.email,
-      },
+    },
+  });
+});
+
+app.get("/max-fashion/cart/:user_id", async (req, res) => {
+  try {
+    const { user_id } = req.params;
+    const all_cart_products = await cart_product.find({ user_id }, { _id: 0 });
+    return res.status(200).json(all_cart_products);
+  } catch (error) {
+    return res.send({ message: "something went wrong", error: true });
+  }
+});
+
+app.post("/max-fashion/cart", async (req, res) => {
+  try {
+    const cart_item = req.body;
+    const existinguser = await cart_product.find({
+      user_id: cart_item.user_id,
+      product_id: cart_item.product_id,
     });
+    if (existinguser[0]) {
+      return res
+        .status(400)
+        .json({ message: "Item already exists in your Basket", error: true });
+    } else {
+      await cart_product.insertMany(cart_item);
+      return res
+        .status(200)
+        .json({ message: "Item added to your Basket", error: false });
+    }
+    return res.send("got cart_item");
+  } catch (error) {
+    return res.send({ message: "something went wrong", error: true });
+  }
+});
+
+app.patch("/max-fashion/cart/quantity", async (req, res) => {
+  try {
+    const { quantity, user_id, product_id } = req.body;
+
+    await cart_product.updateOne(
+      { user_id, product_id },
+      { $set: { quantity: quantity } }
+    );
+
+    return res.status(200).json({ message: "quantity updated", error: false });
+  } catch (error) {
+    return res.send({ message: "something went wrong", error: true });
+  }
+});
+
+app.delete("/max-fashion/cart/:user_id/:product_id", async (req, res) => {
+  try {
+    const { user_id, product_id } = req.params;
+
+    await cart_product.deleteMany({ user_id, product_id });
+
+    return res
+      .status(200)
+      .json({ message: "item deleted from cart", error: false });
+  } catch (error) {
+    return res.send({ message: "something went wrong", error: true });
+  }
 });
 
 app.listen(PORT, async () => {

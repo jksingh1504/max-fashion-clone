@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../stylesheets/navbar/navbar.css";
@@ -9,10 +9,23 @@ import GirlSubnav from "./Subnav/GirlSubnav";
 import BoySubnav from "./Subnav/BoySubnav";
 import { useDisclosure } from "@chakra-ui/react";
 import SignupModal from "./SignupModal/SignupModal";
+import { useDispatch, useSelector } from "react-redux";
+import * as action from "../../redux/AppRedux/action";
 
 const Navbar = () => {
   const [cartHeight, setCartHeight] = useState("0px");
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const user = useSelector((store) => store.AppReducer.user);
+  const cart=useSelector(store=>store.AppReducer.cart)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/max-fashion/cart/${user._id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(action.set_cart(data));
+      });
+  }, [dispatch, user]);
 
   return (
     <>
@@ -32,25 +45,25 @@ const Navbar = () => {
           <div className="women">
             <b>Women</b>
             <div>
-              <WomenSubnav/>
+              <WomenSubnav />
             </div>
           </div>
           <div className="men">
             <b>Men</b>
             <div>
-              <MenSubnav/>
+              <MenSubnav />
             </div>
           </div>
           <div className="girls">
             <b>Girls</b>
             <div>
-              <GirlSubnav/>
+              <GirlSubnav />
             </div>
           </div>
           <div className="boys">
             <b>Boys</b>
             <div>
-              <BoySubnav/>
+              <BoySubnav />
             </div>
           </div>
         </div>
@@ -60,8 +73,17 @@ const Navbar = () => {
         </div>
         <div className="nav_child_3">
           <div>
-            <b onClick={onOpen}>Sign-up / Sign-in</b>
-            <SignupModal props={{ isOpen, onOpen, onClose }}/>
+            {user.token ? (
+              <b>
+                Welcome!{" "}
+                <span style={{ color: "#303ab2" }}>{user.user_name}</span>
+              </b>
+            ) : (
+              <>
+                <b onClick={onOpen}>Sign-up / Sign-in</b>
+                <SignupModal props={{ isOpen, onOpen, onClose }} />
+              </>
+            )}
           </div>
           <div>
             <span
@@ -89,7 +111,7 @@ const Navbar = () => {
               }}
               className="cart_count"
             >
-              3
+              {cart.length}
             </span>
             <CartModal height={cartHeight} />
           </div>

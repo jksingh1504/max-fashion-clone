@@ -26,19 +26,21 @@ const HomePage = () => {
     else setCount(3);
   };
 
+  
+
   return (
     <>
       <Navbar />
-      <MobileNav/>
+      <MobileNav />
       <Slider props={{ count, setCount, next_slide, prev_slide }} />
       <ShopByCategory />
-      <StyleSpotlight/>
-      <WhatsYourStyle/>
-      <FestiveMust/>
-      <BudgetZone/>
-      <YouthStore/>
-      <TopStores/>
-      <HotTrends/>
+      <StyleSpotlight />
+      <WhatsYourStyle />
+      <FestiveMust />
+      <BudgetZone />
+      <YouthStore />
+      <TopStores />
+      <HotTrends />
     </>
   );
 };

@@ -1,18 +1,78 @@
 import React from "react";
 import { useRef } from "react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../../stylesheets/ProductPage/productCard.css";
 import Accordian from "../Utilities/Accordian";
 import SizeSelector from "./SizeSelector";
+import { useToast } from "@chakra-ui/react";
+import * as action from "../../redux/AppRedux/action";
 
 const ProductCard = ({ ele }) => {
   // console.log(ele);
   const [color, setColor] = useState("0px");
+  const toastIdRef = useRef(null);
+  const dispatch = useDispatch();
+  const toast = useToast();
+  const product_size = useSelector((store) => store.AppReducer.product_size);
   const [size, setSize] = useState("0px");
   const currentModal = useRef(() => {
     return "";
   });
+  const { _id: user_id } = useSelector((store) => store.AppReducer.user);
+
+  const handle_add_to_cart = (ele) => {
+    if (product_size === "" || !ele.size.includes(product_size)) {
+      if (toastIdRef.current) {
+        toast.close(toastIdRef.current);
+      }
+      toastIdRef.current = toast({
+        position: "bottom",
+        title: "Please select product size",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
+    const cart_product = { ...ele };
+    delete cart_product._id;
+    cart_product.product_id = ele._id;
+    cart_product.quantity = 1;
+    cart_product.user_id = user_id;
+    cart_product.size = [product_size];
+
+    fetch("http://localhost:5000/max-fashion/cart", {
+      method: "POST",
+      body: JSON.stringify(cart_product),
+      headers: { "content-type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then(async (data) => {
+        const { message, error } = await data;
+        if (!error) {
+          fetch(`http://localhost:5000/max-fashion/cart/${user_id}`)
+            .then((res) => res.json())
+            .then((data) => {dispatch(action.set_cart(data))});
+          toastIdRef.current = toast({
+            position: "bottom",
+            title: message,
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+          });
+        } else if (error) {
+          toastIdRef.current = toast({
+            position: "bottom",
+            title: message,
+            status: "error",
+            duration: 3000,
+            isClosable: true,
+          });
+        }
+      });
+  };
 
   return (
     <div
@@ -60,7 +120,13 @@ const ProductCard = ({ ele }) => {
             </div>
             <Accordian
               height={color}
-              style={{ bottom: "54px",padding:"0px 10px",color:"red", left: "0", borderRadius: "3px" }}
+              style={{
+                bottom: "54px",
+                padding: "0px 10px",
+                color: "red",
+                left: "0",
+                borderRadius: "3px",
+              }}
             >
               <b>sorry!.., no colour options available for this product</b>
             </Accordian>
@@ -76,16 +142,25 @@ const ProductCard = ({ ele }) => {
                 } else setSize("0px");
               }}
             >
-              <p>Select Size</p>
+              <p>
+                {ele.size.includes(product_size) ? product_size : "select size"}
+              </p>
               <span className="material-icons">expand_more</span>
             </div>
             <Accordian
               height={size}
-              style={{ bottom: "54px",width:"100%", left: "0", borderRadius: "3px" }}
-            ><SizeSelector size={ele.size}/></Accordian>
+              style={{
+                bottom: "54px",
+                width: "100%",
+                left: "0",
+                borderRadius: "3px",
+              }}
+            >
+              <SizeSelector size={ele.size} />
+            </Accordian>
           </div>
         </div>
-        <button>ADD TO BASKET</button>
+        <button onClick={(e) => handle_add_to_cart(ele)}>ADD TO BASKET</button>
       </div>
     </div>
   );

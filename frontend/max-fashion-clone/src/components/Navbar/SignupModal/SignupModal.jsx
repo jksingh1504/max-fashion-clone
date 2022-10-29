@@ -5,11 +5,12 @@ import {
   ModalHeader,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,
   Input,
 } from "@chakra-ui/react";
 import { useRef } from "react";
 import { useToast } from "@chakra-ui/react";
+import {useDispatch} from "react-redux"
+import * as action from "../../../redux/AppRedux/action"
 
 const SignupModal = ({ props }) => {
   const [loginSignup, setLoginSignup] = useState("signup");
@@ -17,6 +18,7 @@ const SignupModal = ({ props }) => {
   const form_data = useRef({});
   const toast = useToast();
   const toastIdRef = useRef(null);
+  const dispatch=useDispatch()
 
   const handle_login_signup = () => {
     if (loginSignup === "signup") {
@@ -96,6 +98,8 @@ const SignupModal = ({ props }) => {
         .then(async(data) => {
             const { message, error } = await data;
           if (!error) {
+            onClose()
+            console.log(data.user)
             toastIdRef.current = toast({
               position: "bottom",
               title: "Login Successful",
@@ -103,6 +107,7 @@ const SignupModal = ({ props }) => {
               duration: 3000,
               isClosable: true,
             });
+            dispatch(action.set_user(data.user))
           } else if (error) {
             toastIdRef.current = toast({
               position: "bottom",
