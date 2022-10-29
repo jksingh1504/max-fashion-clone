@@ -4,6 +4,7 @@ import "../../stylesheets/navbar/mobileNav.css";
 import MobStickyNav from "./MobStickyNav";
 
 const MobileNav = () => {
+
   const cart=useSelector(store=>store.AppReducer.cart)
   return (
     <>

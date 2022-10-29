@@ -5,9 +5,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../../../stylesheets/navbar/cartModal.css";
 
-const CartModal = ({ height = "0px" }) => {
-
-  const {cart,total} = useSelector((store) => store.AppReducer);
+const CartModal = ({ setCartHeight, height = "0px" }) => {
+  const { cart, total } = useSelector((store) => store.AppReducer);
 
   return (
     <>
@@ -83,11 +82,14 @@ const CartModal = ({ height = "0px" }) => {
                       borderTop: "none",
                     }}
                   >
-                    <img
-                      style={{ borderRadius: "3px", aspectRatio: 1 }}
-                      src={ele["jss17662 src"]}
-                      alt=""
-                    />
+                    <Link to="/productPage">
+                      <img
+                        onClick={() => setCartHeight("0px")}
+                        style={{ borderRadius: "3px", aspectRatio: 1 }}
+                        src={ele["jss17662 src"]}
+                        alt=""
+                      />
+                    </Link>
                     <div>
                       <p
                         style={{
@@ -137,9 +139,11 @@ const CartModal = ({ height = "0px" }) => {
                           fontSize: "13px",
                           lineHeight: "18px",
                           marginTop: "4px",
+                          color: "blue",
+                          fontWeight: "600",
                         }}
                       >
-                        Qty: 1
+                        Qty: {ele.quantity}
                       </p>
                     </div>
                   </div>
@@ -205,6 +209,7 @@ const CartModal = ({ height = "0px" }) => {
               }}
             >
               <Link
+                onClick={() => setCartHeight("0px")}
                 style={{
                   display: "inline-flex",
                   height: "100%",
@@ -227,6 +232,7 @@ const CartModal = ({ height = "0px" }) => {
               }}
             >
               <Link
+                onClick={() => setCartHeight("0px")}
                 style={{
                   display: "inline-flex",
                   height: "100%",

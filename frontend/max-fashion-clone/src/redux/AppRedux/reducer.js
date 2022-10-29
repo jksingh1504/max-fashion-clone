@@ -23,7 +23,7 @@ export const AppReducer = (state = initial_state, action) => {
     case actionType.SET_CART:
         state.total=0;
         for(let i=0;i<payload.length;i++){
-            state.total+=payload[i].price
+            state.total+=payload[i].price*payload[i].quantity
         }
       return { ...state, cart: payload };
 

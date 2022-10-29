@@ -20,7 +20,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/max-fashion/cart/${user._id}`)
+    fetch(`https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${user._id}`)
       .then((res) => res.json())
       .then((data) => {
         dispatch(action.set_cart(data));
@@ -113,7 +113,7 @@ const Navbar = () => {
             >
               {cart.length}
             </span>
-            <CartModal height={cartHeight} />
+            <CartModal setCartHeight={setCartHeight} height={cartHeight} />
           </div>
         </div>
       </div>

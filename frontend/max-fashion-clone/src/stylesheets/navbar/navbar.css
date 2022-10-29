@@ -102,6 +102,10 @@
   gap: 24px;
 }
 
+#navbar .nav_child_3>div{
+  cursor: pointer;
+}
+
 .cart_count {
   position: absolute;
   top: 0;

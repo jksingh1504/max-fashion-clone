@@ -1,32 +1,128 @@
-import React from "react";
+import { useToast } from "@chakra-ui/react";
+import React, { useRef } from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "../../stylesheets/cartPage/cartCard.css";
 import "../../stylesheets/Utilities/flex.css";
+import * as action from "../../redux/AppRedux/action";
+import { Link } from "react-router-dom";
 
-const CartCard = () => {
+const CartCard = ({ ele }) => {
+  const [qty, setQty] = useState(ele.quantity);
+  const toastIdRef = useRef(null);
+  const dispatch = useDispatch();
+  const toast = useToast();
+  const store = useSelector((store) => store);
+
+  const handle_quantity = (e) => {
+    e.preventDefault();
+    setQty(e.target.value);
+    if (toastIdRef.current) {
+      toast.close(toastIdRef.current);
+    }
+    fetch("https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/quantity", {
+      method: "PATCH",
+      body: JSON.stringify({
+        quantity: e.target.value,
+        user_id: ele.user_id,
+        product_id: ele.product_id,
+      }),
+      headers: { "content-type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then(async (data) => {
+        const { message, error } = await data;
+        if (!error) {
+          fetch(
+            `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${store.AppReducer.user._id}`
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(e.target.value);
+              dispatch(action.set_cart(data));
+            });
+
+          toastIdRef.current = toast({
+            position: "bottom",
+            title: message,
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+          });
+        } else if (error) {
+          toastIdRef.current = toast({
+            position: "bottom",
+            title: message,
+            status: "error",
+            duration: 3000,
+            isClosable: true,
+          });
+        }
+      });
+  };
+
+  const handle_delete = () => {
+    fetch(
+      `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${ele.user_id}/${ele.product_id}`,
+      { method: "DELETE" }
+    )
+      .then((res) => res.json())
+      .then(async (data) => {
+        const { message, error } = await data;
+        if (!error) {
+          fetch(
+            `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${store.AppReducer.user._id}`
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              dispatch(action.set_cart(data));
+            });
+          toastIdRef.current = toast({
+            position: "bottom",
+            title: message,
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+          });
+        } else if (error) {
+          toastIdRef.current = toast({
+            position: "bottom",
+            title: message,
+            status: "error",
+            duration: 3000,
+            isClosable: true,
+          });
+        }
+      });
+  };
+
   return (
     <div className="cart_card">
       <div>
         <div>
-          <img
-            style={{ height: "100%" }}
-            src="https://lmsin.net/cdn-cgi/image/h=831,w=615,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011662449-Green-OLIVEGREENP-1000011662449-09082022_01-2100.jpg"
-            alt="img"
-          />
+          <Link to="/productPage">
+            <img
+              style={{ height: "100%" }}
+              src={ele["jss17662 src"]}
+              alt="img"
+            />
+          </Link>
         </div>
         <div style={{ marginTop: "-6px" }}>
-          <b>MAX Women Textured Elasticated Waist Flared Corduroy Trousers</b>
+          <b>{ele.jss17663}</b>
           <br />
-          <b style={{ marginTop: "14px" }}>₹1299</b>
+          <b style={{ marginTop: "14px" }}>₹ {ele.price}</b>
           <flex
             style={{
               marginTop: "26px",
             }}
           >
-            <p style={{ color: "grey" }}>Color:</p> <p style={{marginLeft:"10px"}}>Green</p>
+            <p style={{ color: "grey" }}>Color:</p>{" "}
+            <p style={{ marginLeft: "10px" }}>your favorite</p>
           </flex>
           <flex>
             <p style={{ color: "grey" }}>Size:</p>
-            <p style={{marginLeft:"20px"}}>6XL</p>
+            <p style={{ marginLeft: "20px" }}>{ele.size[0]}</p>
           </flex>
         </div>
       </div>
@@ -47,7 +143,7 @@ const CartCard = () => {
           <span style={{ color: "black", marginLeft: "6px" }}> 5-7 days</span>
         </p>
         <div style={{ marginTop: "-10px" }}>
-          <select name="qty" id="qty">
+          <select onChange={handle_quantity} value={qty} name="qty" id="qty">
             <option value="1">Qty: 1</option>
             <option value="2">Qty: 2</option>
             <option value="3">Qty: 3</option>
@@ -60,7 +156,7 @@ const CartCard = () => {
       <hr />
       <div>
         <div>
-          <p>Remove</p>
+          <p onClick={handle_delete}>Remove</p>
         </div>
         <div>
           <p>Move to Favourites</p>

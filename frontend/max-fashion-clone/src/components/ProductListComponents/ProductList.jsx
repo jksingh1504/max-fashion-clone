@@ -16,7 +16,7 @@ const ProductList = () => {
   useEffect(() => {
     const currenturl = window.location.href.split("allproducts/")[1];
     axios
-      .get(`http://localhost:5000/allproducts/${currenturl}`)
+      .get(`https://arcane-oasis-69173.herokuapp.com/allproducts/${currenturl}`)
       .then((res) => console.log(setProducts(res.data)));
   }, [type, category,searchParams]);
 

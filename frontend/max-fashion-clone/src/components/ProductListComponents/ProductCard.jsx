@@ -43,7 +43,7 @@ const ProductCard = ({ ele }) => {
     cart_product.user_id = user_id;
     cart_product.size = [product_size];
 
-    fetch("http://localhost:5000/max-fashion/cart", {
+    fetch("https://arcane-oasis-69173.herokuapp.com/max-fashion/cart", {
       method: "POST",
       body: JSON.stringify(cart_product),
       headers: { "content-type": "application/json" },
@@ -52,7 +52,7 @@ const ProductCard = ({ ele }) => {
       .then(async (data) => {
         const { message, error } = await data;
         if (!error) {
-          fetch(`http://localhost:5000/max-fashion/cart/${user_id}`)
+          fetch(`https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${user_id}`)
             .then((res) => res.json())
             .then((data) => {dispatch(action.set_cart(data))});
           toastIdRef.current = toast({

@@ -5,8 +5,8 @@ const connectDB = require("./config/db.connect");
 const allProducts = require("./model/product.model");
 const User = require("./model/User.model");
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const cart_product = require("./model/cart.model");
+const jwt = require("jsonwebtoken")
+const cart_product = require("./model/cart.model")
 
 const app = express();
 const PORT = process.env.PORT;
