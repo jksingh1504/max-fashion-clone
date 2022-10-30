@@ -5,13 +5,13 @@ import Navbar from "../components/Navbar/Navbar";
 import ProductList from "../components/ProductListComponents/ProductList";
 import ShopFor from "../components/ProductListComponents/ShopFor";
 import "../stylesheets/Utilities/container.css";
-import MobileNav from "../components/Navbar/MobileNav";
+import MobileNav from "../components/Navbar/MobileNav/MobileNav";
 
 const ProductListPage = () => {
   return (
     <>
       <Navbar />
-      <MobileNav/>
+      <MobileNav />
       <div className="container">
         <BreadCrumb />
         <ShopFor />

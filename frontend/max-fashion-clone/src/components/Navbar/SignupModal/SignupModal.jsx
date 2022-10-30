@@ -9,8 +9,8 @@ import {
 } from "@chakra-ui/react";
 import { useRef } from "react";
 import { useToast } from "@chakra-ui/react";
-import {useDispatch} from "react-redux"
-import * as action from "../../../redux/AppRedux/action"
+import { useDispatch, useSelector } from "react-redux";
+import * as action from "../../../redux/AppRedux/action";
 
 const SignupModal = ({ props }) => {
   const [loginSignup, setLoginSignup] = useState("signup");
@@ -18,7 +18,8 @@ const SignupModal = ({ props }) => {
   const form_data = useRef({});
   const toast = useToast();
   const toastIdRef = useRef(null);
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
+  const user = useSelector((store) => store.AppReducer.user);
 
   const handle_login_signup = () => {
     if (loginSignup === "signup") {
@@ -95,11 +96,11 @@ const SignupModal = ({ props }) => {
         headers: { "content-type": "application/json" },
       })
         .then((res) => res.json())
-        .then(async(data) => {
-            const { message, error } = await data;
+        .then(async (data) => {
+          const { message, error } = await data;
           if (!error) {
-            onClose()
-            console.log(data.user)
+            onClose();
+            console.log(data.user);
             toastIdRef.current = toast({
               position: "bottom",
               title: "Login Successful",
@@ -107,7 +108,7 @@ const SignupModal = ({ props }) => {
               duration: 3000,
               isClosable: true,
             });
-            dispatch(action.set_user(data.user))
+            dispatch(action.set_user(data.user));
           } else if (error) {
             toastIdRef.current = toast({
               position: "bottom",
@@ -121,91 +122,127 @@ const SignupModal = ({ props }) => {
     }
   };
 
-  return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <ModalContent>
-        <ModalHeader>
-          {loginSignup === "login" ? "Login" : "Sign-up"}
-        </ModalHeader>
-        <ModalCloseButton />
-        <ModalBody style={{ textAlign: "center" }}>
-          <form onSubmit={handle_submit}>
-            {loginSignup === "signup" ? (
-              <>
-                <Input
-                  required
-                  type="text"
-                  name="user_name"
-                  placeholder="Please Enter a Username"
-                />
-                <br />
-                <br />
-              </>
-            ) : (
-              ""
-            )}
-            <Input
-              style={{ border: "1px solid #ecedeb" }}
-              type="text"
-              name="email"
-              placeholder="Please Enter your Email"
-              required
-            />
+  const handle_logout=()=>{
+    localStorage.setItem("max_clone_user",JSON.stringify({}))
+    dispatch(action.set_user({}))
+    onClose()
+  }
+
+  if (user.token) {
+    return (
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalContent>
+          <ModalHeader style={{ textAlign: "center" }}>
+            Log-Out Here
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <div style={{ width: "100%", textAlign: "center" }}>
+              <button
+                onClick={handle_logout}
+                style={{
+                  width: "120px",
+                  backgroundColor: "#303ab2",
+                  color: "white",
+                  cursor: "pointer",
+                  borderRadius: "3px",
+                  padding: "6px 0px 9px",
+                }}
+              >
+                Log-Out
+              </button>
+            </div>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    );
+  } else {
+    return (
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalContent>
+          <ModalHeader>
+            {loginSignup === "login" ? "Login" : "Sign-up"}
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody style={{ textAlign: "center" }}>
+            <form onSubmit={handle_submit}>
+              {loginSignup === "signup" ? (
+                <>
+                  <Input
+                    required
+                    type="text"
+                    name="user_name"
+                    placeholder="Please Enter a Username"
+                  />
+                  <br />
+                  <br />
+                </>
+              ) : (
+                ""
+              )}
+              <Input
+                style={{ border: "1px solid #ecedeb" }}
+                type="text"
+                name="email"
+                placeholder="Please Enter your Email"
+                required
+              />
+              <br />
+              <br />
+              <Input
+                required
+                type="password"
+                name="password"
+                placeholder="Please Enter a password"
+              />
+              <br />
+              <br />
+              {loginSignup === "signup" ? (
+                <>
+                  <Input
+                    required
+                    type="password"
+                    name="confirm_pass"
+                    placeholder="Please confirm your passwerd"
+                  />
+                  <br />
+                  <br />
+                </>
+              ) : (
+                ""
+              )}
+              <Input
+                type="submit"
+                style={{
+                  width: "160px",
+                  backgroundColor: "#303ab2",
+                  color: "white",
+                  cursor: "pointer",
+                }}
+                value={loginSignup === "login" ? "Login" : "Sign-up"}
+              />
+            </form>
             <br />
             <br />
-            <Input
-              required
-              type="password"
-              name="password"
-              placeholder="Please Enter a password"
-            />
-            <br />
-            <br />
-            {loginSignup === "signup" ? (
-              <>
-                <Input
-                  required
-                  type="password"
-                  name="confirm_pass"
-                  placeholder="Please confirm your passwerd"
-                />
-                <br />
-                <br />
-              </>
-            ) : (
-              ""
-            )}
-            <Input
-              type="submit"
-              style={{
-                width: "160px",
-                backgroundColor: "#303ab2",
-                color: "white",
-                cursor: "pointer",
-              }}
-              value={loginSignup === "login" ? "Login" : "Sign-up"}
-            />
-          </form>
-          <br />
-          <br />
-          <p>
-            {loginSignup === "login" ? "New User?" : "Already registered?"}{" "}
-            <span
-              onClick={handle_login_signup}
-              style={{
-                textDecoration: "underline",
-                display: "inline-flex",
-                cursor: "pointer",
-                marginBottom: "20px",
-              }}
-            >
-              {loginSignup === "signup" ? "Login here" : "Sign-up here"}
-            </span>
-          </p>
-        </ModalBody>
-      </ModalContent>
-    </Modal>
-  );
+            <p>
+              {loginSignup === "login" ? "New User?" : "Already registered?"}{" "}
+              <span
+                onClick={handle_login_signup}
+                style={{
+                  textDecoration: "underline",
+                  display: "inline-flex",
+                  cursor: "pointer",
+                  marginBottom: "20px",
+                }}
+              >
+                {loginSignup === "signup" ? "Login here" : "Sign-up here"}
+              </span>
+            </p>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    );
+  }
 };
 
 export default SignupModal;

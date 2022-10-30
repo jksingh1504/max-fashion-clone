@@ -1,22 +1,25 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "../../stylesheets/navbar/mobileNav.css";
+import "../../../stylesheets/navbar/mobileNav.css";
 import MobStickyNav from "./MobStickyNav";
-import * as action from "../../redux/AppRedux/action"
+import * as action from "../../../redux/AppRedux/action";
+import { useDisclosure } from "@chakra-ui/react";
+import MobileDrawer from "./MobileDrawer";
 
 const MobileNav = () => {
-
-  const {cart,user}=useSelector(store=>store.AppReducer)
+  const { cart, user } = useSelector((store) => store.AppReducer);
   const dispatch = useDispatch();
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   useEffect(() => {
-    fetch(`https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${user._id}`)
+    fetch(
+      `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${user._id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         dispatch(action.set_cart(data));
       });
   }, [dispatch, user]);
-
 
   return (
     <>
@@ -24,6 +27,7 @@ const MobileNav = () => {
         <div>
           <div>
             <span
+              onClick={onOpen}
               style={{
                 fontSize: "30px",
                 display: "inline-flex",
@@ -33,6 +37,7 @@ const MobileNav = () => {
             >
               menu
             </span>
+            <MobileDrawer OnClose={onClose} IsOpen={isOpen}/>
             <h1
               style={{
                 margin: "-10px 0px 0px",
@@ -73,7 +78,7 @@ const MobileNav = () => {
       <div>
         <input type="text" placeholder="What are you looking for?" />
       </div>
-      <MobStickyNav/>
+      <MobStickyNav />
     </>
   );
 };

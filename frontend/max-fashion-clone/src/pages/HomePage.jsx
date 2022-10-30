@@ -10,7 +10,7 @@ import StyleSpotlight from "../components/HomePageComponents/StyleSpotlight";
 import WhatsYourStyle from "../components/HomePageComponents/WhatsYourStyle";
 import TopStores from "../components/HomePageComponents/TopStores";
 import YouthStore from "../components/HomePageComponents/YouthStore";
-import MobileNav from "../components/Navbar/MobileNav";
+import MobileNav from "../components/Navbar/MobileNav/MobileNav";
 
 const HomePage = () => {
   /* code for making active slider */
@@ -25,8 +25,6 @@ const HomePage = () => {
     if (count > 0) setCount(count - 1);
     else setCount(3);
   };
-
-  
 
   return (
     <>

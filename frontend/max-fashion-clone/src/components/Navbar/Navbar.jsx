@@ -15,11 +15,13 @@ import * as action from "../../redux/AppRedux/action";
 const Navbar = () => {
   const [cartHeight, setCartHeight] = useState("0px");
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const {cart,user} = useSelector((store) => store.AppReducer);
+  const { cart, user } = useSelector((store) => store.AppReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(`https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${user._id}`)
+    fetch(
+      `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${user._id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         dispatch(action.set_cart(data));
@@ -72,17 +74,21 @@ const Navbar = () => {
         </div>
         <div className="nav_child_3">
           <div>
-            {user.token ? (
-              <b>
-                Welcome!{" "}
-                <span style={{ color: "#303ab2" }}>{user.user_name}</span>
-              </b>
-            ) : (
-              <>
-                <b onClick={onOpen}>Sign-up / Sign-in</b>
-                <SignupModal props={{ isOpen, onOpen, onClose }} />
-              </>
-            )}
+            <b onClick={onOpen}>
+              {user.user_name ? (
+                <>
+                  <b>
+                    Welcome!
+                    <span style={{ color: "#303ab2" }}>
+                      {" " + user.user_name}
+                    </span>
+                  </b>
+                </>
+              ) : (
+                "Sign-up/Login"
+              )}
+            </b>
+            <SignupModal props={{ isOpen, onOpen, onClose }} />
           </div>
           <div>
             <span

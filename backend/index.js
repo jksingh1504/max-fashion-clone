@@ -156,7 +156,7 @@ app.post("/max-fashion/cart", async (req, res) => {
     }
     return res.send("got cart_item");
   } catch (error) {
-    return res.send({ message: "something went wrong", error: true });
+    return res.send({ message: "Please login first", error: true });
   }
 });
 

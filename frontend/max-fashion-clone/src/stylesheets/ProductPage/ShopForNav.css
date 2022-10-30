@@ -29,7 +29,7 @@
     width: 40px;
 }
 
-@media all and (min-width:0px) and (max-width:600px){
+@media all and (min-width:0px) and (max-width:800px){
     .shop_for_nav{
         flex-wrap: nowrap;
         overflow-x: scroll;
@@ -42,7 +42,7 @@
     }
 
     .shop_for_nav>div img{
-        width: 30px;
+        width: 34px;
     }
 
     .shop_for_nav::-webkit-scrollbar{

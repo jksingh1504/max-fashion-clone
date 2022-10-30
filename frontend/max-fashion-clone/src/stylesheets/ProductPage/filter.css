@@ -1,6 +1,6 @@
 .filter{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(160px,auto));
+    grid-template-columns: repeat(auto-fit,minmax(130px,auto));
     gap:20px;
     padding: 26px 8px;
     background-color: rgb(245, 245, 245);
@@ -32,4 +32,13 @@
     z-index: 3;
     width: 100%;
     background-color: white;
+}
+
+@media all and (min-width:0px) and (max-width:450px){
+    .filter{
+        gap: 16px;
+    }
+    .filter .search_filter{
+        padding: 10px;
+    }
 }

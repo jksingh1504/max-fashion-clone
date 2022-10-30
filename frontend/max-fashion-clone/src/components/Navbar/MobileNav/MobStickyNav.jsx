@@ -1,5 +1,5 @@
 import React from "react";
-import "../../stylesheets/navbar/mobileNav.css";
+import "../../../stylesheets/navbar/mobileNav.css";
 
 const MobStickyNav = () => {
   return (
@@ -7,8 +7,8 @@ const MobStickyNav = () => {
       <div id="mob_sticky_nav">
         <div>Women</div>
         <div>Men</div>
-        <div>Boys</div>
         <div>Girls</div>
+        <div>Boys</div>
       </div>
       <div className="offer_nav">
         <p>
