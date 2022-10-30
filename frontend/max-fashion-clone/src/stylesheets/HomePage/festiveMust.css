@@ -23,7 +23,7 @@
 @media all and (min-width: 600px) and (max-width: 800px) {
     .festive_must>div{
         grid-template-columns: repeat(3,1fr);
-        gap: 30px 0px;
+        gap: 20px 0px;
     }
 }
 
@@ -31,6 +31,10 @@
 @media all and (min-width: 0px) and (max-width: 600px){
     .festive_must>div{
         grid-template-columns: repeat(2,1fr);
-        gap: 16px 0px;
+        gap: 0px;
+    }
+
+    .festive_must h3{
+        font-size: 17px;
     }
 }

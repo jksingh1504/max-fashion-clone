@@ -58,7 +58,7 @@ const ProductList = () => {
             <span className="material-icons">expand_more</span>
           </div>
           <Accordian
-            style={{ top: "38px", right: "0px", minWidth: "220px" }}
+            style={{ top: "38px", right: "0px", minWidth: "200px" }}
             height={sortModalHeight}
           >
             <SortingFilter />

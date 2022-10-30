@@ -105,16 +105,16 @@ const ProductCard = ({ ele }) => {
         </Link>
         <span className="material-icons">favorite_border</span>
       </div>
-      <p style={{ fontSize: "20px", fontWeight: "600", margin: "10px 0px" }}>
+      <p style={{ fontWeight: "600", margin: "10px 0px 8px 4px" }}>
         <span style={{ fontSize: "12px" }} className="material-icons">
           currency_rupee
         </span>
         {" " + ele.price}
-        <span style={{ color: "blue", marginLeft: "30px" }}>
+        <span>
           {"(Brand: " + ele.brand + ")"}
         </span>
       </p>
-      <p style={{ fontSize: "14px" }}>{ele.jss17663}</p>
+      <p style={{marginLeft:"4px" }}>{ele.jss17663}</p>
       <br />
       <div className="add_to_cart_section">
         <div>

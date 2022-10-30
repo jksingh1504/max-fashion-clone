@@ -22,7 +22,7 @@
   border: 1px solid rgb(211, 211, 211);
   border-radius: 3px;
   padding: 6px 16px;
-  min-width: 220px;
+  min-width: 200px;
   cursor: pointer;
 }
 
@@ -49,7 +49,7 @@
 
 .product_list {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 @media all and (min-width: 750px) and (max-width: 1000px) {
@@ -68,10 +68,18 @@
   .total_and_sort {
     flex-direction: column;
     align-items: flex-start;
-    gap: 30px;
+    gap: 24px;
   }
 
   .product_list {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: -106px;
+    width: 100vw;
+    margin-left: -16px;
+  }
+
+  .offer_nav p {
+    text-align: left;
+    font-weight: 500;
   }
 }

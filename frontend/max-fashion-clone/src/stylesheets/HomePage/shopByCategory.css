@@ -38,15 +38,19 @@
 @media all and (min-width: 0px) and (max-width: 600px) {
   .shop_by_category {
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px 0px;
   }
 
-  .shop_by_category h3{
-    font-size: 17px;
+  hr+br{
+    display: none;
+  }
+
+  .shop_by_category h3,.festive_must h3{
+    font-size: 15px;
   }
 
   .shop_by_category > div{
-    gap: 6px;
+    gap: 4px;
+    padding: 5px;
   }
 
   .end_seperator img {
