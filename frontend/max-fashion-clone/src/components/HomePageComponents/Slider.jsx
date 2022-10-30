@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useEffect } from "react";
 import "../../stylesheets/HomePage/slider.css";
 
 const Slider = ({ props }) => {
   const { count, next_slide, prev_slide, setCount } = props;
+  const slideRef = useRef(null);
+
+  useEffect(() => {
+    slideRef.current = setInterval(() => {
+      next_slide();
+    }, 2000);
+
+    return () => {
+      clearInterval(slideRef.current);
+    };
+  }, [slideRef, next_slide]);
 
   return (
     <>

@@ -144,4 +144,9 @@
     height: 0px;
     margin: 0;
   }
+
+  .offer_nav p{
+    font-weight: 500;
+    font-size: 14px;
+  }
 }

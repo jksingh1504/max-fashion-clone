@@ -31,6 +31,6 @@
 @media all and (min-width: 0px) and (max-width: 600px){
     .festive_must>div{
         grid-template-columns: repeat(2,1fr);
-        gap: 30px 0px;
+        gap: 16px 0px;
     }
 }
