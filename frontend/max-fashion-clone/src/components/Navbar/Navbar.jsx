@@ -87,7 +87,7 @@ const Navbar = () => {
           <div>
             <span
               style={{ display: "inline-block", marginTop: "6px" }}
-              class="material-icons"
+              className="material-icons"
             >
               favorite_border
             </span>

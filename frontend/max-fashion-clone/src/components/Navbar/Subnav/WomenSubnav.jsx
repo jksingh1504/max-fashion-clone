@@ -132,10 +132,10 @@ const WomenSubnav = () => {
         <div>
           {online_exclusives.map((ele, indx) => {
             if (indx === 0) {
-              return <b>{ele.content}</b>;
+              return <b key={indx}>{ele.content}</b>;
             } else
               return (
-                <Link to={ele.link}>
+                <Link key={indx} to={ele.link}>
                   <p style={{ color: "grey" }}>{ele.content}</p>
                 </Link>
               );
@@ -145,10 +145,10 @@ const WomenSubnav = () => {
         <div>
           {curves.map((ele, indx) => {
             if (indx === 0) {
-              return <b>{ele.content}</b>;
+              return <b key={indx}>{ele.content}</b>;
             } else
               return (
-                <Link to={ele.link}>
+                <Link key={indx} to={ele.link}>
                   <p style={{ color: "grey" }}>{ele.content}</p>
                 </Link>
               );
@@ -159,10 +159,10 @@ const WomenSubnav = () => {
         <div>
           {Tops.map((ele, indx) => {
             if (indx === 0) {
-              return <b>{ele.content}</b>;
+              return <b key={indx}>{ele.content}</b>;
             } else
               return (
-                <Link to={ele.link}>
+                <Link key={indx} to={ele.link}>
                   <p style={{ color: "grey" }}>{ele.content}</p>
                 </Link>
               );
@@ -172,10 +172,10 @@ const WomenSubnav = () => {
         <div>
           {Bottoms.map((ele, indx) => {
             if (indx === 0) {
-              return <b>{ele.content}</b>;
+              return <b key={indx}>{ele.content}</b>;
             } else
               return (
-                <Link to={ele.link}>
+                <Link key={indx} to={ele.link}>
                   <p style={{ color: "grey" }}>{ele.content}</p>
                 </Link>
               );
@@ -186,10 +186,10 @@ const WomenSubnav = () => {
         <div>
           {Dresses.map((ele, indx) => {
             if (indx === 0) {
-              return <b>{ele.content}</b>;
+              return <b key={indx}>{ele.content}</b>;
             } else
               return (
-                <Link to={ele.link}>
+                <Link key={indx} to={ele.link}>
                   <p style={{ color: "grey" }}>{ele.content}</p>
                 </Link>
               );
@@ -199,10 +199,10 @@ const WomenSubnav = () => {
         <div>
           {Sleepwear.map((ele, indx) => {
             if (indx === 0) {
-              return <b>{ele.content}</b>;
+              return <b key={indx}>{ele.content}</b>;
             } else
               return (
-                <Link to={ele.link}>
+                <Link key={indx} to={ele.link}>
                   <p style={{ color: "grey" }}>{ele.content}</p>
                 </Link>
               );
@@ -213,10 +213,10 @@ const WomenSubnav = () => {
         <div>
           {indian_wear.map((ele, indx) => {
             if (indx === 0) {
-              return <b>{ele.content}</b>;
+              return <b key={indx}>{ele.content}</b>;
             } else
               return (
-                <Link to={ele.link}>
+                <Link key={indx} to={ele.link}>
                   <p style={{ color: "grey" }}>{ele.content}</p>
                 </Link>
               );
@@ -226,10 +226,10 @@ const WomenSubnav = () => {
         <div>
           {Sportswear.map((ele, indx) => {
             if (indx === 0) {
-              return <b>{ele.content}</b>;
+              return <b key={indx}>{ele.content}</b>;
             } else
               return (
-                <Link to={ele.link}>
+                <Link key={indx} to={ele.link}>
                   <p style={{ color: "grey" }}>{ele.content}</p>
                 </Link>
               );
@@ -240,10 +240,10 @@ const WomenSubnav = () => {
         <div>
           {Lingerie.map((ele, indx) => {
             if (indx === 0) {
-              return <b>{ele.content}</b>;
+              return <b key={indx}>{ele.content}</b>;
             } else
               return (
-                <Link to={ele.link}>
+                <Link key={indx} to={ele.link}>
                   <p style={{ color: "grey" }}>{ele.content}</p>
                 </Link>
               );
@@ -253,10 +253,10 @@ const WomenSubnav = () => {
         <div>
           {Accessories.map((ele, indx) => {
             if (indx === 0) {
-              return <b>{ele.content}</b>;
+              return <b key={indx}>{ele.content}</b>;
             } else
               return (
-                <Link to={ele.link}>
+                <Link key={indx} to={ele.link}>
                   <p style={{ color: "grey" }}>{ele.content}</p>
                 </Link>
               );
@@ -267,10 +267,10 @@ const WomenSubnav = () => {
         <div>
           {Footwear.map((ele, indx) => {
             if (indx === 0) {
-              return <b>{ele.content}</b>;
+              return <b key={indx}>{ele.content}</b>;
             } else
               return (
-                <Link to={ele.link}>
+                <Link key={indx} to={ele.link}>
                   <p style={{ color: "grey" }}>{ele.content}</p>
                 </Link>
               );
@@ -280,10 +280,10 @@ const WomenSubnav = () => {
         <div>
           {Winterwear.map((ele, indx) => {
             if (indx === 0) {
-              return <b>{ele.content}</b>;
+              return <b key={indx}>{ele.content}</b>;
             } else
               return (
-                <Link to={ele.link}>
+                <Link key={indx} to={ele.link}>
                   <p style={{ color: "grey" }}>{ele.content}</p>
                 </Link>
               );

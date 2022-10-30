@@ -46,7 +46,7 @@ const CartModal = ({ setCartHeight, height = "0px" }) => {
           {cart.length ? (
             cart.map((ele, indx) => {
               return (
-                <>
+                <React.Fragment key={indx}>
                   <div
                     style={{
                       textAlign: "left",
@@ -147,7 +147,7 @@ const CartModal = ({ setCartHeight, height = "0px" }) => {
                       </p>
                     </div>
                   </div>
-                </>
+                </React.Fragment>
               );
             })
           ) : (

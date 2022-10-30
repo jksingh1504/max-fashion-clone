@@ -83,7 +83,7 @@ const ProductCard = ({ ele }) => {
         <Link to="/productPage">
           <img src={ele["jss17662 src"]} alt="" />
         </Link>
-        <span class="material-icons">favorite_border</span>
+        <span className="material-icons">favorite_border</span>
       </div>
       <p style={{ fontSize: "20px", fontWeight: "600", margin: "10px 0px" }}>
         <span style={{ fontSize: "12px" }} className="material-icons">

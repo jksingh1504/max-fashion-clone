@@ -9,16 +9,18 @@ import SortingFilter from "../Filters/SortingFilter";
 
 const ProductList = () => {
   const [sortModalHeight, setSortModalHeight] = useState("0px");
-  const { type, category } = useParams();
+  const { url } = useParams();
   const [products, setProducts] = useState([]);
-  const [searchParams,setSearchParams]=useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    const currenturl = window.location.href.split("allproducts/")[1];
+    let currenturl = url.split("_").join("/");
+    currenturl+="?"+window.location.href.split("?")[1]
+
     axios
-      .get(`https://arcane-oasis-69173.herokuapp.com/allproducts/${currenturl}`)
-      .then((res) => console.log(setProducts(res.data)));
-  }, [type, category,searchParams]);
+      .get(`https://arcane-oasis-69173.herokuapp.com/${currenturl}`)
+      .then((res) => setProducts(res.data));
+  }, [searchParams,url]);
 
   return (
     <>

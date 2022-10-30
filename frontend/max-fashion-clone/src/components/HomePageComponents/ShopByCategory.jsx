@@ -22,7 +22,7 @@ const ShopByCategory = () => {
       <h1>Shop By Category</h1>
       <div className="shop_by_category">
         <div>
-          <Link to="/allproducts/women/Plus-Size">
+          <Link to="/allproducts_women_Plus-Size">
             <img
               src="https://lmsin.net/cdn-cgi/image/w=288,q=60,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/PC-B-1-Desktop-Women-15SEP2022.gif"
               alt="img_1"
