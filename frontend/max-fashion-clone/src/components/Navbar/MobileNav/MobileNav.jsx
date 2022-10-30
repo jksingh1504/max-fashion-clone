@@ -9,7 +9,7 @@ import MobileDrawer from "./MobileDrawer";
 const MobileNav = () => {
   const { cart, user } = useSelector((store) => store.AppReducer);
   const dispatch = useDispatch();
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
     fetch(
@@ -30,14 +30,12 @@ const MobileNav = () => {
               onClick={onOpen}
               style={{
                 fontSize: "30px",
-                display: "inline-flex",
-                marginTop: "3px",
               }}
               className="material-icons"
             >
               menu
             </span>
-            <MobileDrawer OnClose={onClose} IsOpen={isOpen}/>
+            <MobileDrawer OnClose={onClose} IsOpen={isOpen} />
             <h1
               style={{
                 margin: "-10px 0px 0px",
@@ -51,15 +49,7 @@ const MobileNav = () => {
             </h1>
           </div>
           <div>
-            <span
-              style={{
-                display: "inline-flex",
-                marginTop: "3px",
-              }}
-              className="material-icons"
-            >
-              favorite_border
-            </span>
+            <span className="material-icons">favorite_border</span>
             <div style={{ position: "relative" }}>
               <span
                 style={{

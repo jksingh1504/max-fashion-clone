@@ -52,9 +52,13 @@ const ProductCard = ({ ele }) => {
       .then(async (data) => {
         const { message, error } = await data;
         if (!error) {
-          fetch(`https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${user_id}`)
+          fetch(
+            `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${user_id}`
+          )
             .then((res) => res.json())
-            .then((data) => {dispatch(action.set_cart(data))});
+            .then((data) => {
+              dispatch(action.set_cart(data));
+            });
           toastIdRef.current = toast({
             position: "bottom",
             title: message,
@@ -72,6 +76,22 @@ const ProductCard = ({ ele }) => {
           });
         }
       });
+  };
+
+  const close_size_accordian = () => {
+    currentModal.current("0px");
+    if (size === "0px") {
+      setSize("200px");
+      currentModal.current = setSize;
+    } else setSize("0px");
+  };
+
+  const close_color_accordian = () => {
+    currentModal.current("0px");
+    if (color === "0px") {
+      setColor("150px");
+      currentModal.current = setColor;
+    } else setColor("0px");
   };
 
   return (
@@ -99,16 +119,7 @@ const ProductCard = ({ ele }) => {
       <div className="add_to_cart_section">
         <div>
           <div style={{ position: "relative" }}>
-            <div
-              style={{ width: "100%" }}
-              onClick={() => {
-                currentModal.current("0px");
-                if (color === "0px") {
-                  setColor("150px");
-                  currentModal.current = setColor;
-                } else setColor("0px");
-              }}
-            >
+            <div style={{ width: "100%" }} onClick={close_color_accordian}>
               <div>
                 <img
                   src="https://lmsin.net/cdn-cgi/image/h=50,w=50,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011154739-Pink-PINKP-1000011154739-19032022_01-2100.jpg"
@@ -128,20 +139,13 @@ const ProductCard = ({ ele }) => {
                 borderRadius: "3px",
               }}
             >
-              <b>sorry!.., no colour options available for this product</b>
+              <b onClick={() => currentModal.current("0px")}>
+                sorry!.., no colour options available for this product
+              </b>
             </Accordian>
           </div>
           <div style={{ position: "relative" }}>
-            <div
-              style={{ width: "100%" }}
-              onClick={() => {
-                currentModal.current("0px");
-                if (size === "0px") {
-                  setSize("200px");
-                  currentModal.current = setSize;
-                } else setSize("0px");
-              }}
-            >
+            <div style={{ width: "100%" }} onClick={close_size_accordian}>
               <p>
                 {ele.size.includes(product_size) ? product_size : "select size"}
               </p>
@@ -156,7 +160,7 @@ const ProductCard = ({ ele }) => {
                 borderRadius: "3px",
               }}
             >
-              <SizeSelector size={ele.size} />
+              <SizeSelector currentModal={currentModal} size={ele.size} />
             </Accordian>
           </div>
         </div>

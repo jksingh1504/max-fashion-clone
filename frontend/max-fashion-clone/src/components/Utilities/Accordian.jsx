@@ -1,14 +1,14 @@
 import React from "react";
-import "../../stylesheets/Utilities/accordian.css"
+import "../../stylesheets/Utilities/accordian.css";
 import SizeFilter from "../Filters/SizeFilter";
 
-const Accordian = ({ children,height = "0px",style }) => {
-    
+const Accordian = ({ children, height = "0px", style }) => {
+
   return (
     <div
       style={{
         height: height,
-        ...style
+        ...style,
       }}
       className="accordian"
     >

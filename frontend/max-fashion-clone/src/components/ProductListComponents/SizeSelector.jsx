@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as action from "../../redux/AppRedux/action"
 
-const SizeSelector = ({ size }) => {
+const SizeSelector = ({ size,currentModal }) => {
 
   const product_size=useSelector(store=>store.AppReducer.product_size)
   const dispatch=useDispatch()
@@ -12,6 +12,7 @@ const SizeSelector = ({ size }) => {
     // console.log(e.target.value)
     // return
     dispatch(action.set_product_size(e.target.value))
+    currentModal.current("0px")
   };
   return (
     <div className="search_filter">

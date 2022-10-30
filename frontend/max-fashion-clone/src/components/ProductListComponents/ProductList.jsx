@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useEffect } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import "../../stylesheets/ProductPage/productList.css";
@@ -6,21 +6,39 @@ import Accordian from "../Utilities/Accordian";
 import ProductCard from "./ProductCard";
 import axios from "axios";
 import SortingFilter from "../Filters/SortingFilter";
+import { useToast } from "@chakra-ui/react";
 
 const ProductList = () => {
   const [sortModalHeight, setSortModalHeight] = useState("0px");
   const { url } = useParams();
   const [products, setProducts] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const toast = useToast();
+  const toastIdRef = useRef(null);
 
   useEffect(() => {
     let currenturl = url.split("_").join("/");
-    currenturl+="?"+window.location.href.split("?")[1]
+    currenturl += "?" + window.location.href.split("?")[1];
 
     axios
       .get(`https://arcane-oasis-69173.herokuapp.com/${currenturl}`)
-      .then((res) => setProducts(res.data));
-  }, [searchParams,url]);
+      .then((res) => {
+        setProducts(res.data);
+        if (currenturl.split("?")[1] != "undefined") {
+          // console.log(currenturl.split("?"))
+          if (toastIdRef.current) {
+            toast.close(toastIdRef.current);
+          }
+          toastIdRef.current = toast({
+            position: "bottom",
+            title: "Filters Applied",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+          });
+        }
+      });
+  }, [searchParams, url, toast]);
 
   return (
     <>
