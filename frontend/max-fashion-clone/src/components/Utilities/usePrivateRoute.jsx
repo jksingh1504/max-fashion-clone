@@ -18,11 +18,12 @@ const usePrivateRoute = () => {
       });
       onOpen();
     } else {
+      if (window.location.href.indexOf(nav_to) !== -1) return;
       navigate(nav_to);
     }
   };
 
-  return {private_route};
+  return { private_route };
 };
 
 export default usePrivateRoute;
