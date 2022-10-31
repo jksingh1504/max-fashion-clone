@@ -1,59 +1,131 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import BreadCrumb from "../Utilities/BreadCrumb";
 import "../../stylesheets/ProductPage/productPage.css";
 import "../../stylesheets/Utilities/flex.css";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Button, useToast } from "@chakra-ui/react";
+import * as action from "../../redux/AppRedux/action";
 
 const ProductDetails = () => {
-  const size = ["XS", "S", "M", "L", "XL", "XXL"];
+  const Allsize = ["XS", "S", "M", "L", "XL", "XXL"];
+  const [product, setProduct] = useState({});
+  const toastIdRef = useRef(null);
+  const dispatch = useDispatch();
+  const toast = useToast();
+  const product_size = useSelector((store) => store.AppReducer.product_size);
+  const { _id: user_id } = useSelector((store) => store.AppReducer.user);
+  console.log(product);
+
+  const handle_add_to_cart = (ele) => {
+    if (product_size === "" || !ele.size.includes(product_size)) {
+      if (toastIdRef.current) {
+        toast.close(toastIdRef.current);
+      }
+      toastIdRef.current = toast({
+        position: "bottom",
+        title: "Please select product size",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
+    const cart_product = { ...ele };
+    delete cart_product._id;
+    cart_product.product_id = ele._id;
+    cart_product.quantity = 1;
+    cart_product.user_id = user_id;
+    cart_product.size = [product_size];
+
+    fetch("https://arcane-oasis-69173.herokuapp.com/max-fashion/cart", {
+      method: "POST",
+      body: JSON.stringify(cart_product),
+      headers: { "content-type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then(async (data) => {
+        const { message, error } = await data;
+        if (!error) {
+          fetch(
+            `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${user_id}`
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              dispatch(action.set_cart(data));
+            });
+          toastIdRef.current = toast({
+            position: "bottom",
+            title: message,
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+          });
+        } else if (error) {
+          toastIdRef.current = toast({
+            position: "bottom",
+            title: message,
+            status: "error",
+            duration: 3000,
+            isClosable: true,
+          });
+        }
+      });
+  };
+
+  useEffect(() => {
+    const product_id = window.location.href.split("/product?")[1];
+    // console.log(product_id)
+    fetch(
+      `https://arcane-oasis-69173.herokuapp.com/max-fashion/product/${product_id}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data.product[0].size);
+        if (data.product) setProduct(data.product[0]);
+      });
+  }, [setProduct]);
 
   return (
     <>
       <BreadCrumb />
-      <p style={{ margin: "6px 0px 10px" }}>
-        MAX Women Printed Elasticated Capris - Pack of 2
-      </p>
+      <p style={{ margin: "6px 0px 10px" }}>{product.jss17663}</p>
 
       <div className="product_details">
         <div className="product_img">
           <div>
+            <img src={product["jss17662 src"]} alt="" />
+          </div>
+          <div>
+            <img src={product["jss17662 src"]} alt="" />
+          </div>
+          <div>
             <img
-              src="https://lmsin.net/cdn-cgi/image/h=831,w=615,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011241395-Pink-FUCHSIA-1000011241395-21032022_01-2100.jpg"
+              src="https://lmsin.net/cdn-cgi/image/h=493,w=333,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011710460-Multicolour-M-1000011710460-02092022_01-2100.jpg"
               alt=""
             />
           </div>
           <div>
             <img
-              src="https://lmsin.net/cdn-cgi/image/h=831,w=615,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011241395-Pink-FUCHSIA-1000011241395-21032022_02-2100.jpg"
+              src="https://lmsin.net/cdn-cgi/image/h=493,w=333,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011631216-Orange-ORANGE-1000011631216-09072022_01-2100.jpg"
               alt=""
             />
           </div>
           <div>
             <img
-              src="https://lmsin.net/cdn-cgi/image/h=831,w=615,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011241395-Pink-FUCHSIA-1000011241395-21032022_02-2100.jpg"
+              src="https://lmsin.net/cdn-cgi/image/h=493,w=333,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011711717-Purple-MAUVE-1000011711717-29082022_01-2100.jpg"
               alt=""
             />
           </div>
           <div>
             <img
-              src="https://lmsin.net/cdn-cgi/image/h=831,w=615,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011241395-Pink-FUCHSIA-1000011241395-21032022_02-2100.jpg"
+              src="https://lmsin.net/cdn-cgi/image/h=493,w=333,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011330442-Beige-IVORY-1000011330442-19062022_01-2100.jpg"
               alt=""
             />
           </div>
           <div>
             <img
-              src="https://lmsin.net/cdn-cgi/image/h=831,w=615,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011241395-Pink-FUCHSIA-1000011241395-21032022_02-2100.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              src="https://lmsin.net/cdn-cgi/image/h=831,w=615,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011241395-Pink-FUCHSIA-1000011241395-21032022_02-2100.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              src="https://lmsin.net/cdn-cgi/image/h=831,w=615,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011241395-Pink-FUCHSIA-1000011241395-21032022_02-2100.jpg"
+              src="https://lmsin.net/cdn-cgi/image/h=493,w=333,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011329222-Yellow-MUSTARD-1000011329222-12062022_01-2100.jpg"
               alt=""
             />
           </div>
@@ -73,7 +145,7 @@ const ProductDetails = () => {
               >
                 currency_rupee
               </span>
-              <h2>629</h2>
+              <h2>{product.price}</h2>
               <span
                 style={{
                   fontSize: "14px",
@@ -89,8 +161,10 @@ const ProductDetails = () => {
               </span>
             </flex>
             <flex>
-              <s style={{ color: "grey" }}>₹ 899 </s>
-              <span style={{ marginLeft: "10px" }}>Save ₹ 270 (30.03%)</span>
+              <s style={{ color: "grey" }}>
+                ₹ {Math.ceil(product.price + product.price * 0.1)}
+              </s>
+              <span style={{ marginLeft: "10px" }}>Save ₹ {Math.ceil(product.price * 0.1)} (10.01%)</span>
             </flex>
             <span
               style={{
@@ -136,21 +210,35 @@ const ProductDetails = () => {
             <div style={{ marginTop: "26px" }}>
               <span style={{ fontSize: "14px" }}>Size:</span>
               <flex style={{ gap: "12px" }}>
-                {size.map((ele, indx) => {
+                {Allsize.map((ele, indx) => {
                   return (
-                    <div className="size_nav" key={indx}>
+                    <Button
+                      onClick={() => dispatch(action.set_product_size(ele))}
+                      disabled={
+                        product.size ? !product.size.includes(ele) : false
+                      }
+                      className={
+                        product_size === ele ? "size_nav cur_size" : "size_nav"
+                      }
+                      key={indx}
+                    >
                       {ele}
-                    </div>
+                    </Button>
                   );
                 })}
               </flex>
             </div>
             <br />
-            <button className="add_to_basket_button">ADD TO BASKET</button>
+            <button
+              onClick={() => handle_add_to_cart(product)}
+              className="add_to_basket_button"
+            >
+              ADD TO BASKET
+            </button>
             <br />
             <br />
             <flex style={{ fontWeight: "600", fontSize: "14px" }}>
-              <span class="material-icons">favorite_border</span> Add to
+              <span className="material-icons">favorite_border</span> Add to
               Favorites
             </flex>
             <br />

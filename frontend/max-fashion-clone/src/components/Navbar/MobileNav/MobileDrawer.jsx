@@ -7,15 +7,35 @@ import {
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
 import "../../../stylesheets/navbar/mobileDrawer.css";
 import "../../../stylesheets/Utilities/flex.css";
 import SignupModal from "../SignupModal/SignupModal";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const MobileDrawer = ({ OnClose, IsOpen }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const user=useSelector(store=>store.AppReducer.user)
+  const user = useSelector((store) => store.AppReducer.user);
+  const navigate = useNavigate();
+  const toast=useToast()
+
+  const handle_cart_and_wishlist_navigation = (nav_to) => {
+    if (user.token) {
+      navigate(nav_to);
+      OnClose();
+    }else{
+      toast({
+        position: "bottom",
+        title: "Please Login first",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+      });
+      onOpen()
+    }
+  };
 
   return (
     <Drawer
@@ -28,7 +48,9 @@ const MobileDrawer = ({ OnClose, IsOpen }) => {
       <DrawerContent>
         <DrawerCloseButton className="close_button" />
         <DrawerHeader borderBottomWidth="1px">
-          {user.user_name?`Welcome! ${user.user_name}`:"Welcome to MAX-Fashion"}
+          {user.user_name
+            ? `Welcome! ${user.user_name}`
+            : "Welcome to MAX-Fashion"}
         </DrawerHeader>
         <DrawerBody className="mobile_drawer">
           <p>
@@ -48,11 +70,13 @@ const MobileDrawer = ({ OnClose, IsOpen }) => {
             <span className="material-icons">chevron_right</span>
           </p>
           <br />
-          <button onClick={onOpen}>{user.token?"Log-Out":"Sign-up/Login"}</button>
-          <SignupModal props={{ isOpen, onOpen, onClose}} />
+          <button onClick={onOpen}>
+            {user.token ? "Log-Out" : "Sign-up/Login"}
+          </button>
+          <SignupModal props={{ isOpen, onOpen, onClose }} />
           <br />
           <br />
-          <p>
+          <p onClick={() => handle_cart_and_wishlist_navigation("/")}>
             <flex style={{ gap: "16px" }}>
               <span style={{ color: "black" }} className="material-icons">
                 favorite_border
@@ -61,7 +85,7 @@ const MobileDrawer = ({ OnClose, IsOpen }) => {
             </flex>
             <span className="material-icons">chevron_right</span>
           </p>
-          <p>
+          <p onClick={()=>handle_cart_and_wishlist_navigation("/cart")}>
             <flex style={{ gap: "16px" }}>
               <span style={{ color: "black" }} className="material-icons">
                 shopping_bag

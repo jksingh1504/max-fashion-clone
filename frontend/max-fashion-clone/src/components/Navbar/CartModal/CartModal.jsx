@@ -1,12 +1,18 @@
+import { useDisclosure } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../../../stylesheets/navbar/cartModal.css";
+import usePrivateRoute from "../../Utilities/usePrivateRoute";
+import SignupModal from "../SignupModal/SignupModal";
 
 const CartModal = ({ setCartHeight, height = "0px" }) => {
   const { cart, total } = useSelector((store) => store.AppReducer);
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { private_route } = usePrivateRoute();
 
   return (
     <>
@@ -82,7 +88,7 @@ const CartModal = ({ setCartHeight, height = "0px" }) => {
                       borderTop: "none",
                     }}
                   >
-                    <Link to="/productPage">
+                    <Link to={`/product?${ele.product_id}`}>
                       <img
                         onClick={() => setCartHeight("0px")}
                         style={{ borderRadius: "3px", aspectRatio: 1 }}
@@ -189,6 +195,7 @@ const CartModal = ({ setCartHeight, height = "0px" }) => {
           >
             (Shipping charges may apply)
           </p>
+          <SignupModal props={{ isOpen, onOpen, onClose }} />
           <div
             style={{
               display: "grid",
@@ -201,6 +208,10 @@ const CartModal = ({ setCartHeight, height = "0px" }) => {
             }}
           >
             <button
+              onClick={() => {
+                private_route(onOpen, "/cart");
+                setCartHeight("0px");
+              }}
               style={{
                 border: "1px solid rgb(188, 188, 188)",
                 borderRadius: "3px",
@@ -208,21 +219,13 @@ const CartModal = ({ setCartHeight, height = "0px" }) => {
                 fontWeight: "600",
               }}
             >
-              <Link
-                onClick={() => setCartHeight("0px")}
-                style={{
-                  display: "inline-flex",
-                  height: "100%",
-                  width: "100%",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-                to="/cart"
-              >
-                VIEW BASKET
-              </Link>
+              VIEW BASKET
             </button>
             <button
+              onClick={() => {
+                private_route(onOpen, "/payment");
+                setCartHeight("0px");
+              }}
               style={{
                 border: "1px solid rgb(188, 188, 188)",
                 backgroundColor: "#303ab2",
@@ -231,19 +234,7 @@ const CartModal = ({ setCartHeight, height = "0px" }) => {
                 fontWeight: "600",
               }}
             >
-              <Link
-                onClick={() => setCartHeight("0px")}
-                style={{
-                  display: "inline-flex",
-                  height: "100%",
-                  width: "100%",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-                to="/payment"
-              >
-                CHECKOUT
-              </Link>
+              CHECKOUT
             </button>
           </div>
         </div>

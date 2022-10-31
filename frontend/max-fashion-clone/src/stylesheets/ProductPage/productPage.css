@@ -59,8 +59,11 @@
   max-width: 56px;
   height: 50px;
   border: 2px solid rgb(219, 219, 229);
-  border-radius: 3px;
   font-weight: 600;
+}
+
+.cur_size{
+  border: 2px solid #303ab2;
 }
 
 .add_to_basket_button {

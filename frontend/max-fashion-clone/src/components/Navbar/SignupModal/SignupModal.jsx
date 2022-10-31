@@ -14,7 +14,7 @@ import * as action from "../../../redux/AppRedux/action";
 
 const SignupModal = ({ props }) => {
   const [loginSignup, setLoginSignup] = useState("signup");
-  const { isOpen, onOpen, onClose } = props;
+  const { isOpen, onClose } = props;
   const form_data = useRef({});
   const toast = useToast();
   const toastIdRef = useRef(null);

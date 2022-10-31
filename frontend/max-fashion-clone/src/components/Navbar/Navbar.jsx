@@ -41,7 +41,9 @@ const Navbar = () => {
               fontWeight: "700",
             }}
           >
-            ma<span style={{ color: "#e4002b" }}>x</span>
+            <Link to="/">
+              ma<span style={{ color: "#e4002b" }}>x</span>
+            </Link>
           </h1>
           <div className="women">
             <b>Women</b>

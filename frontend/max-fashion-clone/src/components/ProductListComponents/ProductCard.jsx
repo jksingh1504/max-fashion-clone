@@ -100,7 +100,7 @@ const ProductCard = ({ ele }) => {
       className="product_card"
     >
       <div>
-        <Link to="/productPage">
+        <Link to={`/product?${ele._id}`}>
           <img src={ele["jss17662 src"]} alt="" />
         </Link>
         <span className="material-icons">favorite_border</span>

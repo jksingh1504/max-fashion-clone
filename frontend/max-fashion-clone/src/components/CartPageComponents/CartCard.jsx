@@ -100,7 +100,7 @@ const CartCard = ({ ele }) => {
     <div className="cart_card">
       <div>
         <div>
-          <Link to="/productPage">
+          <Link to={`/product?${ele.product_id}`}>
             <img
               style={{ height: "100%" }}
               src={ele["jss17662 src"]}
@@ -150,7 +150,7 @@ const CartCard = ({ ele }) => {
             <option value="4">Qty: 4</option>
             <option value="5">Qty: 5</option>
           </select>
-          <span class="material-icons">arrow_drop_down</span>
+          <span className="material-icons">arrow_drop_down</span>
         </div>
       </flex>
       <hr />

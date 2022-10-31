@@ -38,6 +38,7 @@
 @media all and (min-width: 0px) and (max-width: 600px) {
   .shop_by_category {
     grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
   }
 
   hr+br{

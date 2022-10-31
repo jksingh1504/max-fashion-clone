@@ -4,12 +4,16 @@ import "../../../stylesheets/navbar/mobileNav.css";
 import MobStickyNav from "./MobStickyNav";
 import * as action from "../../../redux/AppRedux/action";
 import { useDisclosure } from "@chakra-ui/react";
-import MobileDrawer from "./MobileDrawer";
+import SignupModal from "../SignupModal/SignupModal";
+import MobileMenu from "./MobileMenu";
+import usePrivateRoute from "../../Utilities/usePrivateRoute";
+import { Link } from "react-router-dom";
 
 const MobileNav = () => {
   const { cart, user } = useSelector((store) => store.AppReducer);
   const dispatch = useDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { private_route } = usePrivateRoute();
 
   useEffect(() => {
     fetch(
@@ -26,16 +30,7 @@ const MobileNav = () => {
       <div id="mobile_nav">
         <div>
           <div>
-            <span
-              onClick={onOpen}
-              style={{
-                fontSize: "30px",
-              }}
-              className="material-icons"
-            >
-              menu
-            </span>
-            <MobileDrawer OnClose={onClose} IsOpen={isOpen} />
+            <MobileMenu />
             <h1
               style={{
                 margin: "-10px 0px 0px",
@@ -45,12 +40,17 @@ const MobileNav = () => {
                 fontWeight: "700",
               }}
             >
-              ma<span style={{ color: "#e4002b" }}>x</span>
+              <Link to="/">
+                ma<span style={{ color: "#e4002b" }}>x</span>
+              </Link>
             </h1>
           </div>
           <div>
             <span className="material-icons">favorite_border</span>
-            <div style={{ position: "relative" }}>
+            <div
+              onClick={() => private_route(onOpen, "/cart")}
+              style={{ position: "relative" }}
+            >
               <span
                 style={{
                   display: "inline-flex",
@@ -62,6 +62,7 @@ const MobileNav = () => {
               </span>
               <span className="mobile_cart_count">{cart.length}</span>
             </div>
+            <SignupModal props={{ isOpen, onOpen, onClose }} />
           </div>
         </div>
       </div>
