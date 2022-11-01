@@ -67,7 +67,6 @@
   }
 
   #slider > div > div img {
-    aspect-ratio: 1.15;
     border-radius: 10px;
   }
 }

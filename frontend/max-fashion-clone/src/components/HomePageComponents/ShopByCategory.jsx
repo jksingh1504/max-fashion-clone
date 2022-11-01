@@ -9,10 +9,16 @@ const ShopByCategory = () => {
         className="end_seperator"
         style={{ margin: "auto", maxWidth: "1250px", width: "95%" }}
       >
-        <img
-          src="https://lmsin.net/cdn-cgi/image/w=1232,q=70,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/desktop-department-modularblock-oneBytwo1A-COMMONFREESHIP-20SEP2022.gif"
-          alt=""
-        />
+        <picture>
+          <source
+            srcSet="https://lmsin.net/cdn-cgi/image/w=1232,q=70,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/desktop-department-modularblock-oneBytwo1A-COMMONFREESHIP-20SEP2022.gif"
+            media="(min-width: 600px)"
+          />
+          <img
+            src="https://lmsin.net/cdn-cgi/image/w=500,q=60,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/Mobile-department-modularblock-oneBytwo1A-COMMONFREESHIP-20SOCT022.gif"
+            alt=""
+          />
+        </picture>
       </div>
       <br />
       <br />

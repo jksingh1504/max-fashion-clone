@@ -153,6 +153,7 @@ const ProductDetails = () => {
                   color: "grey",
                   display: "inline-flex",
                   marginLeft: "10px",
+                  marginTop:"-14px",
                   flexDirection: "column",
                   justifyContent: "flex-end",
                 }}

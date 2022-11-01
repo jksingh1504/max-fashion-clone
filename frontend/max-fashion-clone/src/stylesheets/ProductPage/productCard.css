@@ -25,9 +25,9 @@
   font-size: 20px;
 }
 
-.product_card > div:first-child + p>span:last-child{
-    margin-left: 30px;
-    color: #303ab2;
+.product_card > div:first-child + p > span:last-child {
+  margin-left: 30px;
+  color: #303ab2;
 }
 
 .product_card > div:first-child + p + p {
@@ -117,8 +117,9 @@
     font-size: 16px;
   }
 
-  .product_card > div:first-child + p>span:last-child{
+  .product_card > div:first-child + p > span:last-child {
     margin-left: 10px;
+    font-size: 12px;
     color: green;
   }
 
