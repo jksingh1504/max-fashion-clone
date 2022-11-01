@@ -5,6 +5,7 @@ import ProductDetails from "../components/ProductPage/ProductDetails";
 import "../stylesheets/Utilities/container.css";
 
 const ProductPage = () => {
+  window.scrollTo({top:0,behavior:"smooth"})
   return (
     <>
       <Navbar />

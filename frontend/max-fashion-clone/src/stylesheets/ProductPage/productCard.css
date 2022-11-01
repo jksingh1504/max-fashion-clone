@@ -124,6 +124,7 @@
 
   .product_card > div:first-child + p + p {
     font-size: 11px;
+    padding-right: 8px;
   }
 
   .product_card:hover {

@@ -8,6 +8,8 @@ import "../stylesheets/Utilities/container.css";
 import MobileNav from "../components/Navbar/MobileNav/MobileNav";
 
 const ProductListPage = () => {
+  if(window.innerWidth<=800)
+  window.scrollTo({top:250,behavior:'smooth'})
   return (
     <>
       <Navbar />
