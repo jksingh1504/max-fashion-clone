@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import "../../stylesheets/navbar/navbar.css";
 import CartModal from "./CartModal/CartModal";
 import WomenSubnav from "./Subnav/WomenSubnav";
@@ -11,12 +11,16 @@ import { useDisclosure } from "@chakra-ui/react";
 import SignupModal from "./SignupModal/SignupModal";
 import { useDispatch, useSelector } from "react-redux";
 import * as action from "../../redux/AppRedux/action";
+import { useRef } from "react";
 
 const Navbar = () => {
   const [cartHeight, setCartHeight] = useState("0px");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { cart, user } = useSelector((store) => store.AppReducer);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams({});
+  const activePage = useRef(searchParams.getAll("page")[0] || "women");
 
   useEffect(() => {
     fetch(
@@ -28,6 +32,10 @@ const Navbar = () => {
       });
   }, [dispatch, user]);
 
+  useEffect(() => {
+    activePage.current = searchParams.getAll("page")[0];
+  }, [searchParams]);
+
   return (
     <>
       <div id="navbar">
@@ -35,36 +43,64 @@ const Navbar = () => {
           <h1
             style={{
               margin: "-10px 0px 0px",
-              fontSize: "38px",
+              fontSize: "40px",
               padding: "0px",
               color: "#303ab2",
-              fontWeight: "700",
+              fontWeight: "900",
             }}
           >
             <Link to="/">
               ma<span style={{ color: "#e4002b" }}>x</span>
             </Link>
           </h1>
-          <div className="women">
-            <b>Women</b>
+          <div className={activePage.current === "women" ? "men active_page" : "men"}>
+            <b
+              onClick={() => {
+                if (window.location.href.indexOf("page=women") === -1)
+                  navigate("/?page=women");
+              }}
+            >
+              Women
+            </b>
             <div>
               <WomenSubnav />
             </div>
           </div>
-          <div className="men">
-            <b>Men</b>
+          <div className={activePage.current === "men" ? "women active_page" : "men"}>
+            <b
+              onClick={() => {
+                if (window.location.href.indexOf("page=men") === -1)
+                  navigate("/?page=men");
+              }}
+            >
+              Men
+            </b>
             <div>
               <MenSubnav />
             </div>
           </div>
-          <div className="girls">
-            <b>Girls</b>
+          <div  className={activePage.current === "girls" ? "girls active_page" : "men"}>
+            <b
+              onClick={() => {
+                if (window.location.href.indexOf("page=girls") === -1)
+                  navigate("/?page=girls");
+              }}
+            >
+              Girls
+            </b>
             <div>
               <GirlSubnav />
             </div>
           </div>
-          <div className="boys">
-            <b>Boys</b>
+          <div className={activePage.current === "boys" ? "boys active_page" : "boys"}>
+            <b
+              onClick={() => {
+                if (window.location.href.indexOf("page=boys") === -1)
+                  navigate("/?page=boys");
+              }}
+            >
+              Boys
+            </b>
             <div>
               <BoySubnav />
             </div>

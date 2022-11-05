@@ -34,11 +34,19 @@
   cursor: pointer;
 }
 
-:is(.women,.men,.girls,.boys):hover {
+:is(.women, .men, .girls, .boys):hover {
   background-color: white;
 }
 
-.women{
+#navbar .active_page {
+  background-color: white;
+}
+
+#navbar .active_page > b {
+  color: #303ab2;
+}
+
+.women {
   margin-left: 6px;
 }
 
@@ -102,7 +110,7 @@
   gap: 24px;
 }
 
-#navbar .nav_child_3>div{
+#navbar .nav_child_3 > div {
   cursor: pointer;
 }
 
@@ -123,7 +131,7 @@
   z-index: 12;
 }
 
-.offer_nav{
+.offer_nav {
   margin-top: 70px;
   background-color: #303ab2;
   color: white;
@@ -132,9 +140,8 @@
   padding: 10px 0px;
 }
 
-
-@media all  and (min-width:0px) and (max-width:800px){
-  #navbar{
+@media all and (min-width: 0px) and (max-width: 800px) {
+  #navbar {
     height: 0px;
     display: none;
   }
@@ -145,7 +152,7 @@
     margin: 0;
   }
 
-  .offer_nav p{
+  .offer_nav p {
     font-weight: 500;
     font-size: 14px;
   }

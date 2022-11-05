@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const WomenSubnav = () => {
   const online_exclusives = [
     { content: "Online Exclusives" },
-    { content: "Tops", link: "/allproducts_women_Plus-Size" },
+    { content: "Tops", link: "/?page=women" },
     { content: "Indian wear", link: "/allproducts_women_Plus-Size" },
     { content: "Sports wear", link: "/allproducts_women_Plus-Size" },
     { content: "Lingerie", link: "/allproducts_women_Plus-Size" },

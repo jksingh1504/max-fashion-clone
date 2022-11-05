@@ -33,7 +33,7 @@ const MobileNav = () => {
             <MobileMenu />
             <h1
               style={{
-                margin: "-10px 0px 0px",
+                margin: "-8px 0px 0px",
                 fontSize: "38px",
                 padding: "0px",
                 color: "#303ab2",
