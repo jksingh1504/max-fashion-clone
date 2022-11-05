@@ -1,6 +1,6 @@
 import React from "react";
 
-const YouthStore = () => {
+const YouthStore = ({activePage,home_page_data}) => {
   return (
     <>
       <br />
@@ -11,7 +11,7 @@ const YouthStore = () => {
           style={{ margin: "auto", maxWidth: "1280px", padding: "0px 16px" }}
         >
           <img
-            src="https://lmsin.net/cdn-cgi/image/w=1232,q=70,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/desktop-department-modularblock-oneBytwo1A-Women-29SEP2022.png"
+            src={home_page_data[activePage].youth_store}
             alt=""
           />
         </div>

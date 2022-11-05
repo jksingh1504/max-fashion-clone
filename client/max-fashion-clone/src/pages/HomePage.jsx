@@ -11,10 +11,22 @@ import WhatsYourStyle from "../components/HomePageComponents/WhatsYourStyle";
 import TopStores from "../components/HomePageComponents/TopStores";
 import YouthStore from "../components/HomePageComponents/YouthStore";
 import MobileNav from "../components/Navbar/MobileNav/MobileNav";
+import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useRef } from "react";
+import { home_page_data } from "../components/Utilities/HomePageData";
 
 const HomePage = () => {
   /* code for making active slider */
   const [count, setCount] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [activePage, setActivePage] = useState(
+    searchParams.getAll("page")[0] || "women"
+  );
+
+  useEffect(() => {
+    setActivePage(searchParams.getAll("page")[0] || "women");
+  }, [searchParams]);
 
   const next_slide = () => {
     if (count < 3) setCount(count + 1);
@@ -30,15 +42,24 @@ const HomePage = () => {
     <>
       <Navbar />
       <MobileNav />
-      <Slider props={{ count, setCount, next_slide, prev_slide }} />
-      <ShopByCategory />
-      <StyleSpotlight />
-      <WhatsYourStyle />
-      <FestiveMust />
-      <BudgetZone />
-      <YouthStore />
-      <TopStores />
-      <HotTrends />
+      <Slider
+        props={{
+          count,
+          setCount,
+          next_slide,
+          prev_slide,
+          activePage,
+          home_page_data,
+        }}
+      />
+      <ShopByCategory activePage={activePage} home_page_data={home_page_data} />
+      <StyleSpotlight activePage={activePage} home_page_data={home_page_data} />
+      <WhatsYourStyle activePage={activePage} home_page_data={home_page_data} />
+      <FestiveMust activePage={activePage} home_page_data={home_page_data} />
+      <BudgetZone activePage={activePage} home_page_data={home_page_data} />
+      <YouthStore activePage={activePage} home_page_data={home_page_data} />
+      <TopStores activePage={activePage} home_page_data={home_page_data} />
+      <HotTrends activePage={activePage} home_page_data={home_page_data} />
     </>
   );
 };

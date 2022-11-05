@@ -3,8 +3,16 @@ import { useEffect } from "react";
 import "../../stylesheets/HomePage/slider.css";
 
 const Slider = ({ props }) => {
-  const { count, next_slide, prev_slide, setCount } = props;
+  const {
+    count,
+    next_slide,
+    prev_slide,
+    setCount,
+    activePage,
+    home_page_data,
+  } = props;
   const slideRef = useRef(null);
+  // console.log(home_page_data)
 
   useEffect(() => {
     slideRef.current = setInterval(() => {
@@ -28,11 +36,11 @@ const Slider = ({ props }) => {
             <div>
               <picture>
                 <source
-                  srcSet="https://70415bb9924dca896de0-34a37044c62e41b40b39fcedad8af927.lmsin.net/MAX-Friday/MAX2.O/MAX-Banner2-desktop-Women-27OCT22.gif"
+                  srcSet={home_page_data[activePage].slider.pc_1}
                   media="(min-width: 600px)"
                 />
                 <img
-                  src="https://70415bb9924dca896de0-34a37044c62e41b40b39fcedad8af927.lmsin.net/MAX-Friday/MAX2.O/MAX-Banner2-mobile-Women-27OCT22.gif"
+                  src={home_page_data[activePage].slider.mobile_1}
                   alt="slide_1"
                 />
               </picture>
@@ -40,11 +48,11 @@ const Slider = ({ props }) => {
             <div>
               <picture>
                 <source
-                  srcSet="https://lmsin.net/cdn-cgi/image/w=1232,q=70,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/MAX-Banner1-desktop-Women-21OCT22.gif"
+                  srcSet={home_page_data[activePage].slider.pc_2}
                   media="(min-width: 600px)"
                 />
                 <img
-                  src="https://70415bb9924dca896de0-34a37044c62e41b40b39fcedad8af927.lmsin.net/MAX-Friday/MAX2.O/MAX-Banner1-mobile-Women-21OCT22.gif"
+                  src={home_page_data[activePage].slider.mobile_2}
                   alt="slide_2"
                 />
               </picture>
@@ -52,11 +60,11 @@ const Slider = ({ props }) => {
             <div>
               <picture>
                 <source
-                  srcSet="https://lmsin.net/cdn-cgi/image/w=1232,q=70,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/MAX-Banner3-desktopp-Women-27OCT22.png"
+                  srcSet={home_page_data[activePage].slider.pc_3}
                   media="(min-width: 600px)"
                 />
                 <img
-                  src="https://lmsin.net/cdn-cgi/image/w=500,q=60,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/MAX-Banner3-mob-Women-27OCT22.png"
+                  src={home_page_data[activePage].slider.mobile_3}
                   alt="slide_3"
                 />
               </picture>
@@ -64,11 +72,11 @@ const Slider = ({ props }) => {
             <div>
               <picture>
                 <source
-                  srcSet="https://lmsin.net/cdn-cgi/image/w=1232,q=70,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/MAX-Banner4-desktop-Women-27OCT22.png"
+                  srcSet={home_page_data[activePage].slider.pc_4}
                   media="(min-width: 600px)"
                 />
                 <img
-                  src="https://lmsin.net/cdn-cgi/image/w=500,q=60,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/MAX-Banner4-mobile-Women-27OCT22.png"
+                  src={home_page_data[activePage].slider.mobile_4}
                   alt="slide_4"
                 />
               </picture>

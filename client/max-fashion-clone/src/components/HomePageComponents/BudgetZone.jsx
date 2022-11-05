@@ -1,7 +1,7 @@
 import React from "react";
 import "../../stylesheets/HomePage/budgetZone.css";
 
-const BudgetZone = () => {
+const BudgetZone = ({activePage,home_page_data}) => {
   return (
     <>
       <br />
@@ -11,19 +11,19 @@ const BudgetZone = () => {
         <div>
           <div>
             <img
-              src="https://lmsin.net/cdn-cgi/image/w=500,q=60,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/desktop-modularblock19One-Women-15SEP2022.png"
+              src={home_page_data[activePage].budget_zone.img_1}
               alt=""
             />
           </div>
           <div>
             <img
-              src="https://lmsin.net/cdn-cgi/image/w=500,q=60,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/desktop-modularblock19Two-Women-15SEP2022.png"
+              src={home_page_data[activePage].budget_zone.img_2}
               alt=""
             />
           </div>
           <div>
             <img
-              src="https://lmsin.net/cdn-cgi/image/w=500,q=60,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/desktop-modularblock19Three-Women-15SEP2022.png"
+              src={home_page_data[activePage].budget_zone.img_3}
               alt=""
             />
           </div>

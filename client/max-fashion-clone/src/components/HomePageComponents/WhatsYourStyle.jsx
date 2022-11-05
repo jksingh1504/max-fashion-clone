@@ -1,6 +1,6 @@
 import React from "react";
 
-const WhatsYourStyle = () => {
+const WhatsYourStyle = ({ activePage, home_page_data }) => {
   return (
     <>
       <br />
@@ -10,13 +10,13 @@ const WhatsYourStyle = () => {
         <div>
           <div>
             <img
-              src="https://lmsin.net/cdn-cgi/image/w=616,q=70,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/desktop-department-5modularblock-oneBytwo1C-Women-06OCT22.png"
+              src={home_page_data[activePage].whats_your_style.img_1}
               alt=""
             />
           </div>
           <div>
             <img
-              src="https://lmsin.net/cdn-cgi/image/w=616,q=70,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/desktop-department-modularblock-oneBythree-E-Women-06OCT22.png"
+              src={home_page_data[activePage].whats_your_style.img_2}
               alt=""
             />
           </div>
@@ -30,13 +30,13 @@ const WhatsYourStyle = () => {
         <div>
           <div>
             <img
-              src="https://lmsin.net/cdn-cgi/image/w=616,q=70,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/desktop-department-modularblock-oneBythree-D-Women-06OCT22.png"
+              src={home_page_data[activePage].whats_your_style.img_3}
               alt=""
             />
           </div>
           <div>
             <img
-              src="https://lmsin.net/cdn-cgi/image/w=616,q=70,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/desktop-department-5modularblock-oneBytwo1D-Women-06OCT22.png"
+              src={home_page_data[activePage].whats_your_style.img_4}
               alt=""
             />
           </div>

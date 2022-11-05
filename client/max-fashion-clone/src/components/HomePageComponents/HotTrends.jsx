@@ -1,7 +1,7 @@
 import React from "react";
 import "../../stylesheets/HomePage/TopStores.css";
 
-const HotTrends = () => {
+const HotTrends = ({activePage,home_page_data}) => {
   return (
     <>
       <br />
@@ -11,13 +11,13 @@ const HotTrends = () => {
         <div>
           <div>
             <img
-              src="https://lmsin.net/cdn-cgi/image/w=500,q=70,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/desktop-department-modularblock7-oneBythree-A-Women-29SEP2022.png"
+              src={home_page_data[activePage].hot_trends.img_1}
               alt=""
             />
           </div>
           <div>
             <img
-              src="https://lmsin.net/cdn-cgi/image/w=500,q=70,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/desktop-department-modularblock7-oneBythree-B-Womenn-29SEP2022.png"
+              src={home_page_data[activePage].hot_trends.img_2}
               alt=""
             />
           </div>
@@ -35,11 +35,11 @@ const HotTrends = () => {
       >
         <picture>
           <source
-            srcSet="https://lmsin.net/cdn-cgi/image/w=1232,q=60,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/desktop-department-9modularblock-oneBythree-A-Women-15SEP2022.png"
+            srcSet={home_page_data[activePage].devider.img_1}
             media="(min-width: 600px)"
           />
           <img
-            src="https://lmsin.net/cdn-cgi/image/w=500,q=40,fit=cover/https://70415bb9924dca896de0-34a37044c62e41b40b39fcedAD8AF927.lmsin.net/MAX-Friday/MAX2.O/Mobile-department-9modularblock-oneBythree-A-Women-31OCT22.png"
+            src={home_page_data[activePage].devider.img_2}
             alt=""
           />
         </picture>
