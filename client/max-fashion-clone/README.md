@@ -90,7 +90,7 @@ MAX Fashion Clone is MERN Stack e-commerce web application that allows you to bu
 
 <br />
 
-## Glimpses of Nike-Clone 🙈 :
+## Glimpses of Max-Fashion-Clone 🙈 :
 
 <table>
   <tr>
