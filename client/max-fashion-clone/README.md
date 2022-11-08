@@ -1,5 +1,6 @@
 <h1 align="center">MAX Fashion Clone</h1>
 
+
 <h3 align="center">It's a clone of famous E-commerce website MAX Fashion using MERN Stack with all the major functionalities.</h3>
 
 <br />
@@ -54,7 +55,7 @@
 
 MAX Fashion Clone is MERN Stack e-commerce web application that allows you to buy clothes & accessories, online with payment gateway integration. It has a variety of categories, just visit the product listing page and you will see all the products, apply filters as per your need and in just a few clicks you can buy any products from the website. This project is just for educational purpose.
 
-![cover](https://user-images.githubusercontent.com/91532881/175955112-da88c18c-ac5e-455a-9ac5-047c7db4f894.png)
+![cover](https://user-images.githubusercontent.com/101581191/200629844-e92cac8a-9421-4661-94c4-90d8debe10a7.png)
 
 <br />
 
@@ -94,33 +95,22 @@ MAX Fashion Clone is MERN Stack e-commerce web application that allows you to bu
 
 <table>
   <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955122-200a6ccb-54a5-4f39-9bc2-cd3ba3a4d102.jpeg" alt="home" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955109-b51e3e81-4cd8-4f00-a8cd-873c82882a15.png" alt="coupons" /></td>
+    <td><img src="https://user-images.githubusercontent.com/101581191/200632509-eb86ac1c-b128-4c46-8a7b-7c3f43de2f74.png" alt="home" /></td>
+    <td><img src="https://user-images.githubusercontent.com/101581191/200632544-e99f91bc-6be3-4806-a758-291fb5478470.png" alt="coupons" /></td>
   </tr>
   <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955141-44aefea0-a9ee-4c3a-93e0-094ca9214e54.jpeg" alt="signup" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955129-e5392377-e72a-4868-883f-5a244fc9bc87.jpeg" alt="login" /></td>
+    <td><img src="https://user-images.githubusercontent.com/101581191/200633821-e67eadfa-1c4f-4810-b1f6-4b5ed7beded9.png" alt="signup" /></td>
+    <td><img src="https://user-images.githubusercontent.com/101581191/200632570-8c2fa7d9-aa33-48df-a81a-19ded7ba7e6a.png" alt="login" /></td>
   </tr>
   <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955097-9fe2e5a5-b4f4-4c1f-beb7-4080186e5a17.jpeg" alt="allProducts" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175957017-3530fe22-46ae-4bf7-a645-55f7a5f25ed9.jpeg" alt="men" /></td>
+    <td><img src="https://user-images.githubusercontent.com/101581191/200632603-b289169e-cfe4-4183-8f4f-754db699b64b.png" alt="allProducts" /></td>
+    <td><img src="https://user-images.githubusercontent.com/101581191/200632633-511322b9-2aa5-4e15-904f-7999443f8643.png" alt="men" /></td>
   </tr>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955142-dd33e21a-49a9-4aeb-89e7-edb3e871828f.jpeg" alt="women" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955126-2874a5c1-8655-40ab-b9ce-67275139e70e.jpeg" alt="kids" /></td>
-  </tr>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955114-1090036d-2e73-46fa-8aca-8ef9ffab1724.jpeg" alt="description" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955117-edff5eaf-7507-4580-b3b8-3aea6c089840.jpeg" alt="descriptionDark" /></td>
-  </tr>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955106-867749b1-4838-40dc-b184-145f10d1eec2.jpeg" alt="cart" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955107-f93e13a0-6c50-46e8-a5f3-09d15421e97b.jpeg" alt="checkout" /></td>
-  </tr>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955137-828f89b2-648e-4a68-885a-fa3f3f29b55c.png" alt="razorpay" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955133-96792a4b-7e70-4e1e-a5cf-999da70a9c95.jpeg" alt="orders" /></td>
-  </tr>
+<!--   <tr>
+    <td><img src="" alt="women" /></td>
+    <td><img src="" alt="kids" /></td>
+  </tr> -->
+  
 </table>
 
 <br />
@@ -134,15 +124,16 @@ MAX10 (for 10% Off)
 
 ```
 
-## Razorpay test payment Cards
+<!-- ## Razorpay test payment Cards
 
 [Click here to use the razorpay testing payment methods](https://razorpay.com/docs/payments/payments/test-card-upi-details/)
 
-<br />
+<br /> -->
 
 <h2>Demo</h2>
 
-[Click here to see the presentation video of this project](https://www.linkedin.com/posts/m-sehrawat_reactjs-nike-nikecareers-activity-6947552300534042624-me2_?utm_source=linkedin_share&utm_medium=member_desktop_web)
+[Click here to see the presentation video of this project]()
+
 
 <br />
 
@@ -158,12 +149,12 @@ This project was built using React, Redux, Chakra UI, HTML, CSS, JavaScript, Res
 
 ### Setup
 
-The project repository can be found in [GitHub link](https://github.com/m-sehrawat/Nike-Clone) or just clone the project using this command.
+The project repository can be found in [GitHub link](https://github.com/jksingh1504/max-fashion-clone) or just clone the project using this command.
 
 ```
 Using HTTPS
 
-# git clone https://github.com/m-sehrawat/Nike-Clone.git
+# git clone https://github.com/jksingh1504/max-fashion-clone
 ```
 
 
