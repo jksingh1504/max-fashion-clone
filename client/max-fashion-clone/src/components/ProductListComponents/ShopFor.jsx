@@ -77,7 +77,7 @@ const ShopFor = () => {
             src="https://70415bb9924dca896de0-34a37044c62e41b40b39fcedad8af927.lmsin.net/MAX-Friday/MAX2.O/MAX_SubCatImg/1maxwomen-tops-topsandtees.jpg"
             alt=""
           />
-          <p>Desses and Jumpsuits</p>
+          <p>Dresses and Jumpsuits</p>
         </div>
         <div>
           <img

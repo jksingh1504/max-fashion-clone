@@ -13,11 +13,11 @@ import YouthStore from "../components/HomePageComponents/YouthStore";
 import MobileNav from "../components/Navbar/MobileNav/MobileNav";
 import { useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
-import { useRef } from "react";
 import { home_page_data } from "../components/Utilities/HomePageData";
 
 const HomePage = () => {
   /* code for making active slider */
+
   const [count, setCount] = useState(0);
   const [searchParams, setSearchParams] = useSearchParams();
   const [activePage, setActivePage] = useState(
@@ -27,6 +27,10 @@ const HomePage = () => {
   useEffect(() => {
     setActivePage(searchParams.getAll("page")[0] || "women");
   }, [searchParams]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const next_slide = () => {
     if (count < 3) setCount(count + 1);

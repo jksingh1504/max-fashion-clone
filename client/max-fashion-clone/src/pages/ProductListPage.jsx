@@ -6,10 +6,13 @@ import ProductList from "../components/ProductListComponents/ProductList";
 import ShopFor from "../components/ProductListComponents/ShopFor";
 import "../stylesheets/Utilities/container.css";
 import MobileNav from "../components/Navbar/MobileNav/MobileNav";
+import { useEffect } from "react";
 
 const ProductListPage = () => {
-  if(window.innerWidth<=800)
-  window.scrollTo({top:250,behavior:'smooth'})
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <>
       <Navbar />

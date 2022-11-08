@@ -80,7 +80,7 @@
   padding-left: 1.5vw;
 }
 
-.nav_child_1 > div > div > div > div:nth-child(n + 2) {
+.nav_child_1 > div > div > div > div:not(:nth-child(6n + 1)) {
   border-left: 1px solid rgb(234, 234, 234);
 }
 

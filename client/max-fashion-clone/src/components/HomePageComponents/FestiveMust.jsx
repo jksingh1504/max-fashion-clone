@@ -8,10 +8,10 @@ const FestiveMust = ({ activePage, home_page_data }) => {
       <br />
       <br />
       <div className="festive_must">
-        <h1>Festive Must-Haves</h1>
+        <h1>Must-Haves</h1>
         <div>
           {home_page_data[activePage].festive_must.map((ele, indx) => (
-            <div>
+            <div key={indx}>
               <img
                 src={ele.img_url}
                 alt=""
