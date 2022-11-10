@@ -15,7 +15,7 @@ const MobStickyNav = () => {
     <>
       <div id="mob_sticky_nav">
         <div
-          style={activePage.current === "women" ? { color: "#303ab2" } : {}}
+          style={activePage.current === "women" ? { color: "#303ab2",border:"1px solid #303ab2" } : {}}
           onClick={() => {
             if (window.location.href.indexOf("page=women") === -1)
               navigate("/?page=women");
@@ -24,7 +24,7 @@ const MobStickyNav = () => {
           Women
         </div>
         <div
-          style={activePage.current === "men" ? { color: "#303ab2" } : {}}
+          style={activePage.current === "men" ? { color: "#303ab2",border:"1px solid #303ab2" } : {}}
           onClick={() => {
             if (window.location.href.indexOf("page=men") === -1)
               navigate("/?page=men");
@@ -33,7 +33,7 @@ const MobStickyNav = () => {
           Men
         </div>
         <div
-          style={activePage.current === "girls" ? { color: "#303ab2" } : {}}
+          style={activePage.current === "girls" ? { color: "#303ab2",border:"1px solid #303ab2" } : {}}
           onClick={() => {
             if (window.location.href.indexOf("page=girls") === -1)
               navigate("/?page=girls");
@@ -42,7 +42,7 @@ const MobStickyNav = () => {
           Girls
         </div>
         <div
-        style={activePage.current === "boys" ? { color: "#303ab2" } : {}}
+        style={activePage.current === "boys" ? { color: "#303ab2",border:"1px solid #303ab2" } : {}}
           onClick={() => {
             if (window.location.href.indexOf("page=boys") === -1)
               navigate("/?page=boys");

@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 
 app.get("/allproducts/:category/:type", async (req, res) => {
   const { type, category } = req.params;
-  const { brand, size, price } = req.query;
+  const { brand, size, price,sort } = req.query;
   let price_filter;
 
   switch (price) {
@@ -46,18 +46,33 @@ app.get("/allproducts/:category/:type", async (req, res) => {
       break;
   }
 
-  const data = await allProducts.find({
-    $and: [
-      { type, category },
-      {
+  const data = sort
+  ? await allProducts
+      .find({
         $and: [
-          brand ? { brand: { $in: brand } } : {},
-          size ? { size: { $all: size } } : {},
-          price ? price_filter : {},
+          { type, category },
+          {
+            $and: [
+              brand ? { brand: { $in: brand } } : {},
+              size ? { size: { $all: size } } : {},
+              price ? price_filter : {},
+            ],
+          },
         ],
-      },
-    ],
-  });
+      })
+      .sort({price:sort==="asc"?1:-1})
+  : await allProducts.find({
+      $and: [
+        { type, category },
+        {
+          $and: [
+            brand ? { brand: { $in: brand } } : {},
+            size ? { size: { $all: size } } : {},
+            price ? price_filter : {},
+          ],
+        },
+      ],
+    });
 
   res.send(data);
 });

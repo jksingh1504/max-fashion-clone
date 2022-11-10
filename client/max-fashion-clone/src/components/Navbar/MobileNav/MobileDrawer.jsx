@@ -19,13 +19,13 @@ const MobileDrawer = ({ OnClose, IsOpen }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const user = useSelector((store) => store.AppReducer.user);
   const navigate = useNavigate();
-  const toast=useToast()
+  const toast = useToast();
 
-  const handle_cart_and_wishlist_navigation = (nav_to) => {
+  const handle_authorization = (nav_to) => {
     if (user.token) {
       navigate(nav_to);
       OnClose();
-    }else{
+    } else {
       toast({
         position: "bottom",
         title: "Please Login first",
@@ -33,7 +33,7 @@ const MobileDrawer = ({ OnClose, IsOpen }) => {
         duration: 2000,
         isClosable: true,
       });
-      onOpen()
+      onOpen();
     }
   };
 
@@ -53,19 +53,39 @@ const MobileDrawer = ({ OnClose, IsOpen }) => {
             : "Welcome to MAX-Fashion"}
         </DrawerHeader>
         <DrawerBody className="mobile_drawer">
-          <p>
+          <p
+            onClick={() => {
+              navigate("/?page=women");
+              OnClose();
+            }}
+          >
             Women
             <span className="material-icons">chevron_right</span>
           </p>
-          <p>
+          <p
+            onClick={() => {
+              navigate("/?page=men");
+              OnClose();
+            }}
+          >
             Men
             <span className="material-icons">chevron_right</span>
           </p>
-          <p>
+          <p
+            onClick={() => {
+              navigate("/?page=girls");
+              OnClose();
+            }}
+          >
             Girls
             <span className="material-icons">chevron_right</span>
           </p>
-          <p>
+          <p
+            onClick={() => {
+              navigate("/?page=boys");
+              OnClose();
+            }}
+          >
             Boys
             <span className="material-icons">chevron_right</span>
           </p>
@@ -76,7 +96,7 @@ const MobileDrawer = ({ OnClose, IsOpen }) => {
           <SignupModal props={{ isOpen, onOpen, onClose }} />
           <br />
           <br />
-          <p onClick={() => handle_cart_and_wishlist_navigation("/")}>
+          <p onClick={() => handle_authorization("/")}>
             <flex style={{ gap: "16px" }}>
               <span style={{ color: "black" }} className="material-icons">
                 favorite_border
@@ -85,7 +105,7 @@ const MobileDrawer = ({ OnClose, IsOpen }) => {
             </flex>
             <span className="material-icons">chevron_right</span>
           </p>
-          <p onClick={()=>handle_cart_and_wishlist_navigation("/cart")}>
+          <p onClick={() => handle_authorization("/cart")}>
             <flex style={{ gap: "16px" }}>
               <span style={{ color: "black" }} className="material-icons">
                 shopping_bag

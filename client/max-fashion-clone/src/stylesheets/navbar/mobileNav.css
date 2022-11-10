@@ -1,8 +1,11 @@
-#mobile_nav,#mob_sticky_nav,#mobile_nav+div,#mob_sticky_nav + .offer_nav{
-    height: 0px;
-    padding: 0px;
-    visibility: hidden;
-    margin-top: 0px;
+#mobile_nav,
+#mob_sticky_nav,
+#mobile_nav + div,
+#mob_sticky_nav + .offer_nav {
+  height: 0px;
+  padding: 0px;
+  visibility: hidden;
+  margin-top: 0px;
 }
 
 @media all and (min-width: 0px) and (max-width: 800px) {
@@ -19,6 +22,10 @@
     display: flex;
     align-items: center;
     gap: 24px;
+  }
+
+  #mobile_nav > div > div > :is(div,span){
+    cursor: pointer;
   }
 
   #mobile_nav > div:first-child {
