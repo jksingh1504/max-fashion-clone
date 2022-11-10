@@ -11,12 +11,14 @@ const WhatsYourStyle = ({ activePage, home_page_data }) => {
           <div>
             <img
               src={home_page_data[activePage].whats_your_style.img_1}
+              loading="lazy"
               alt=""
             />
           </div>
           <div>
             <img
               src={home_page_data[activePage].whats_your_style.img_2}
+              loading="lazy"
               alt=""
             />
           </div>
@@ -31,12 +33,14 @@ const WhatsYourStyle = ({ activePage, home_page_data }) => {
           <div>
             <img
               src={home_page_data[activePage].whats_your_style.img_3}
+              loading="lazy"
               alt=""
             />
           </div>
           <div>
             <img
               src={home_page_data[activePage].whats_your_style.img_4}
+              loading="lazy"
               alt=""
             />
           </div>

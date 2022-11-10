@@ -10,7 +10,7 @@ const cart_schema=new mongoose.Schema({
     "size":{type:Array},
     "jss17663": {type:String},
     "quantity":{type:Number},
-    "user_id":{type:String},
+    "user_id":{type:String,required:true},
     "product_id":{type:String}
 })
 

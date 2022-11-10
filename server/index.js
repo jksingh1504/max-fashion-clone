@@ -1,12 +1,12 @@
 const express = require("express");
 const cors = require("cors");
-require("dotenv").config({ path: "./config/.env" });
+require("dotenv").config();
 const connectDB = require("./config/db.connect");
 const allProducts = require("./model/product.model");
 const User = require("./model/User.model");
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken")
-const cart_product = require("./model/cart.model")
+const jwt = require("jsonwebtoken");
+const cart_product = require("./model/cart.model");
 
 const app = express();
 const PORT = process.env.PORT;
@@ -156,7 +156,7 @@ app.post("/max-fashion/cart", async (req, res) => {
     }
     return res.send("got cart_item");
   } catch (error) {
-    return res.send({ message: "Please login first", error: true });
+    return res.send({ message: "Please Login first", error: true });
   }
 });
 
@@ -184,6 +184,20 @@ app.delete("/max-fashion/cart/:user_id/:product_id", async (req, res) => {
     return res
       .status(200)
       .json({ message: "item deleted from cart", error: false });
+  } catch (error) {
+    return res.send({ message: "something went wrong", error: true });
+  }
+});
+
+app.get("/max-fashion/product/:product_id", async (req, res) => {
+  try {
+    const { product_id } = req.params;
+
+    const product = await allProducts.find({ _id:product_id });
+
+    return res
+      .status(200)
+      .json({ product, message: "found product", error: false });
   } catch (error) {
     return res.send({ message: "something went wrong", error: true });
   }

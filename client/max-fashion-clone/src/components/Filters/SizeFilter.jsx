@@ -7,6 +7,7 @@ const SizeFilter = () => {
   const size = searchParams.getAll("size");
   const brand = searchParams.getAll("brand");
   const price = searchParams.getAll("price");
+  const sort = searchParams.getAll("sort");
 
   const handleChange = (e) => {
     const newSize = [...size];
@@ -17,7 +18,7 @@ const SizeFilter = () => {
       newSize.push(e.target.value);
       // console.log(newSize);
     }
-    setSearchParams({ brand, price, size: newSize });
+    setSearchParams({ brand, price, size: newSize,sort });
   };
 
   return (

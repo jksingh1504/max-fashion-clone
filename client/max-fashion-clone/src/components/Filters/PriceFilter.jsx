@@ -8,11 +8,12 @@ const PriceFilter = () => {
   const size = searchParams.getAll("size");
   const brand = searchParams.getAll("brand");
   const price = searchParams.getAll("price");
+  const sort = searchParams.getAll("sort");
 
   const handleChange = (e) => {
     if (e.target.value !== price[0])
       setSearchParams({ size, brand, price: [e.target.value] });
-    else setSearchParams({ size, brand, price: [] });
+    else setSearchParams({ size, brand, price: [],sort });
   };
 
   return (

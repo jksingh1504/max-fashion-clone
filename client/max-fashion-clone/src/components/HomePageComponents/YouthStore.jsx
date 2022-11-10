@@ -1,6 +1,6 @@
 import React from "react";
 
-const YouthStore = ({activePage,home_page_data}) => {
+const YouthStore = ({ activePage, home_page_data }) => {
   return (
     <>
       <br />
@@ -12,6 +12,7 @@ const YouthStore = ({activePage,home_page_data}) => {
         >
           <img
             src={home_page_data[activePage].youth_store}
+            loading="lazy"
             alt=""
           />
         </div>

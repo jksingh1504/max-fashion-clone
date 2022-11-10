@@ -102,9 +102,10 @@ const CartCard = ({ ele }) => {
         <div>
           <Link to={`/product?${ele.product_id}`}>
             <img
+              loading="lazy"
               style={{ height: "100%" }}
               src={ele["jss17662 src"]}
-              alt="img"
+              alt="product_img"
             />
           </Link>
         </div>

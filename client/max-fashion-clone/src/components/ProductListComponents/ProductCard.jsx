@@ -101,7 +101,7 @@ const ProductCard = ({ ele }) => {
     >
       <div>
         <Link to={`/product?${ele._id}`}>
-          <img src={ele["jss17662 src"]} alt="" />
+          <img src={ele["jss17662 src"]} loading="lazy" alt="" />
         </Link>
         <span className="material-icons">favorite_border</span>
       </div>
@@ -110,11 +110,9 @@ const ProductCard = ({ ele }) => {
           currency_rupee
         </span>
         {" " + ele.price}
-        <span>
-          {"(Brand: " + ele.brand + ")"}
-        </span>
+        <span>{"(Brand: " + ele.brand + ")"}</span>
       </p>
-      <p style={{marginLeft:"4px" }}>{ele.jss17663}</p>
+      <p style={{ marginLeft: "4px" }}>{ele.jss17663}</p>
       <br />
       <div className="add_to_cart_section">
         <div>
@@ -123,6 +121,7 @@ const ProductCard = ({ ele }) => {
               <div>
                 <img
                   src="https://lmsin.net/cdn-cgi/image/h=50,w=50,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011154739-Pink-PINKP-1000011154739-19032022_01-2100.jpg"
+                  loading="lazy"
                   alt=""
                 />
                 <p>pink</p>

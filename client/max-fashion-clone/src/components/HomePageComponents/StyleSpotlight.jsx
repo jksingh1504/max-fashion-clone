@@ -1,7 +1,7 @@
 import React from "react";
 import "../../stylesheets/HomePage/styleSection.css";
 
-const StyleSpotlight = ({activePage,home_page_data}) => {
+const StyleSpotlight = ({ activePage, home_page_data }) => {
   return (
     <>
       <br />
@@ -13,12 +13,14 @@ const StyleSpotlight = ({activePage,home_page_data}) => {
           <div>
             <img
               src={home_page_data[activePage].style_spotlight.img_1}
+              loading="lazy"
               alt=""
             />
           </div>
           <div>
             <img
               src={home_page_data[activePage].style_spotlight.img_2}
+              loading="lazy"
               alt=""
             />
           </div>

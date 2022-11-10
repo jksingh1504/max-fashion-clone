@@ -1,4 +1,4 @@
-import { useDisclosure } from "@chakra-ui/react";
+import { useDisclosure, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
@@ -10,6 +10,7 @@ import SignupModal from "../SignupModal/SignupModal";
 
 const CartModal = ({ setCartHeight, height = "0px" }) => {
   const { cart, total } = useSelector((store) => store.AppReducer);
+  const toast = useToast();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { private_route } = usePrivateRoute();
@@ -93,6 +94,7 @@ const CartModal = ({ setCartHeight, height = "0px" }) => {
                         onClick={() => setCartHeight("0px")}
                         style={{ borderRadius: "3px", aspectRatio: 1 }}
                         src={ele["jss17662 src"]}
+                        loading="lazy"
                         alt=""
                       />
                     </Link>
@@ -223,8 +225,19 @@ const CartModal = ({ setCartHeight, height = "0px" }) => {
             </button>
             <button
               onClick={() => {
-                private_route(onOpen, "/payment");
-                setCartHeight("0px");
+                if (total > 0) {
+                  private_route(onOpen, "/payment");
+                  setCartHeight("0px");
+                } else {
+                  toast({
+                    position: "bottom",
+                    title: "Add products to your cart to proceed",
+                    status: "error",
+                    duration: 2000,
+                    isClosable: true,
+                  });
+                  setCartHeight("0px");
+                }
               }}
               style={{
                 border: "1px solid rgb(188, 188, 188)",

@@ -1,7 +1,7 @@
 import React from "react";
 import "../../stylesheets/HomePage/TopStores.css";
 
-const HotTrends = ({activePage,home_page_data}) => {
+const HotTrends = ({ activePage, home_page_data }) => {
   return (
     <>
       <br />
@@ -11,12 +11,14 @@ const HotTrends = ({activePage,home_page_data}) => {
         <div>
           <div>
             <img
+              loading="lazy"
               src={home_page_data[activePage].hot_trends.img_1}
               alt=""
             />
           </div>
           <div>
             <img
+              loading="lazy"
               src={home_page_data[activePage].hot_trends.img_2}
               alt=""
             />
@@ -35,10 +37,12 @@ const HotTrends = ({activePage,home_page_data}) => {
       >
         <picture>
           <source
+            loading="lazy"
             srcSet={home_page_data[activePage].devider.img_1}
             media="(min-width: 600px)"
           />
           <img
+            loading="lazy"
             src={home_page_data[activePage].devider.img_2}
             alt=""
           />

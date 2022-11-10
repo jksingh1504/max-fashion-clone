@@ -12,10 +12,7 @@ const FestiveMust = ({ activePage, home_page_data }) => {
         <div>
           {home_page_data[activePage].festive_must.map((ele, indx) => (
             <div key={indx}>
-              <img
-                src={ele.img_url}
-                alt=""
-              />
+              <img loading="lazy" src={ele.img_url} alt="" />
               <h3>{ele.title}</h3>
             </div>
           ))}

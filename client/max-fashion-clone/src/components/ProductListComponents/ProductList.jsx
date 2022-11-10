@@ -15,6 +15,7 @@ const ProductList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const toast = useToast();
   const toastIdRef = useRef(null);
+  const sort = searchParams.getAll("sort");
 
   useEffect(() => {
     let currenturl = url.split("_").join("/");
@@ -50,11 +51,16 @@ const ProductList = () => {
           <div
             onClick={() => {
               if (sortModalHeight === "0px") {
-                setSortModalHeight("200px");
+                setSortModalHeight("100px");
               } else setSortModalHeight("0px");
             }}
           >
-            Price-Low to High{" "}
+            Price-
+            {sort[0]
+              ? sort[0] === "asc"
+                ? "Low to high"
+                : "High to low"
+              : "Add sort"}
             <span className="material-icons">expand_more</span>
           </div>
           <Accordian

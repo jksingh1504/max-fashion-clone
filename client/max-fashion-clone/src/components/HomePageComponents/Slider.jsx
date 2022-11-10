@@ -41,6 +41,7 @@ const Slider = ({ props }) => {
                 />
                 <img
                   src={home_page_data[activePage].slider.mobile_1}
+                  loading="lazy"
                   alt="slide_1"
                 />
               </picture>
@@ -53,6 +54,7 @@ const Slider = ({ props }) => {
                 />
                 <img
                   src={home_page_data[activePage].slider.mobile_2}
+                  loading="lazy"
                   alt="slide_2"
                 />
               </picture>
@@ -65,6 +67,7 @@ const Slider = ({ props }) => {
                 />
                 <img
                   src={home_page_data[activePage].slider.mobile_3}
+                  loading="lazy"
                   alt="slide_3"
                 />
               </picture>
@@ -77,6 +80,7 @@ const Slider = ({ props }) => {
                 />
                 <img
                   src={home_page_data[activePage].slider.mobile_4}
+                  loading="lazy"
                   alt="slide_4"
                 />
               </picture>

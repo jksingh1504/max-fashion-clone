@@ -8,14 +8,10 @@ const BrandFilter = () => {
   const size = searchParams.getAll("size");
   const brand = searchParams.getAll("brand");
   const price = searchParams.getAll("price");
+  const sort = searchParams.getAll("sort");
   // console.log("hllo",brand)
 
   const handleChange = (e) => {
-    // console.log("hello")
-    // if(e.target.value!==brand[0])
-    // setSearchParams({ size,price,brand: [e.target.value] })
-    // else
-    // setSearchParams({ size,price,brand:[]})
 
     const newBrand = [...brand];
     if (newBrand.includes(e.target.value)) {
@@ -25,7 +21,7 @@ const BrandFilter = () => {
       newBrand.push(e.target.value);
       // console.log(newBrand);
     }
-    setSearchParams({ size, price, brand: newBrand });
+    setSearchParams({ size, price, brand: newBrand,sort });
   };
 
   // useEffect(()=>{
