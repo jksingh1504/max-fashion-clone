@@ -106,10 +106,10 @@ MAX Fashion Clone is MERN Stack e-commerce web application that allows you to bu
     <td><img src="https://user-images.githubusercontent.com/101581191/200632603-b289169e-cfe4-4183-8f4f-754db699b64b.png" alt="allProducts" /></td>
     <td><img src="https://user-images.githubusercontent.com/101581191/200632633-511322b9-2aa5-4e15-904f-7999443f8643.png" alt="men" /></td>
   </tr>
-<!--   <tr>
-    <td><img src="" alt="women" /></td>
-    <td><img src="" alt="kids" /></td>
-  </tr> -->
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/101581191/201032021-66863dc4-d988-4c95-a06c-6d4d32065fd0.png" alt="women" /></td>
+    <td><img src="https://user-images.githubusercontent.com/101581191/201032049-e0c256cc-7d47-41f4-a017-ffa64cee85d5.png" alt="kids" /></td>
+  </tr> 
   
 </table>
 
