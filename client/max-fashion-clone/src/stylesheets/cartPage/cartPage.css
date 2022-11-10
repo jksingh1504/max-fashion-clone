@@ -5,8 +5,8 @@
 }
 
 #cart_container > div:first-child {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
