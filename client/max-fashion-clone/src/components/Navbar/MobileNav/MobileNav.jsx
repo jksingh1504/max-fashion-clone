@@ -46,7 +46,7 @@ const MobileNav = () => {
             </h1>
           </div>
           <div>
-            <span className="material-icons">favorite_border</span>
+            <span onClick={() => private_route(onOpen, "/wishlist")} className="material-icons">favorite_border</span>
             <div
               onClick={() => private_route(onOpen, "/cart")}
               style={{ position: "relative" }}

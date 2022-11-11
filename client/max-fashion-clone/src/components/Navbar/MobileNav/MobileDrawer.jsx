@@ -96,7 +96,7 @@ const MobileDrawer = ({ OnClose, IsOpen }) => {
           <SignupModal props={{ isOpen, onOpen, onClose }} />
           <br />
           <br />
-          <p onClick={() => handle_authorization("/")}>
+          <p onClick={() => handle_authorization("/wishlist")}>
             <flex style={{ gap: "16px" }}>
               <span style={{ color: "black" }} className="material-icons">
                 favorite_border

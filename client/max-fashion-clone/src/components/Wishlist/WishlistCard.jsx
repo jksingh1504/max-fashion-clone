@@ -7,74 +7,35 @@ import "../../stylesheets/Utilities/flex.css";
 import * as action from "../../redux/AppRedux/action";
 import { Link } from "react-router-dom";
 
-const CartCard = ({ ele }) => {
-  const [qty, setQty] = useState(ele.quantity);
+const WishlistCard = ({ ele, setWishlist }) => {
   const toastIdRef = useRef(null);
   const dispatch = useDispatch();
   const toast = useToast();
-  const store = useSelector((store) => store);
+  const { _id: user_id } = useSelector((store) => store.AppReducer.user);
 
-  const handle_quantity = (e) => {
-    e.preventDefault();
-    setQty(e.target.value);
-    if (toastIdRef.current) {
-      toast.close(toastIdRef.current);
+  const handle_remove_wishlist_item = () => {
+    const wislistItem = JSON.parse(localStorage.getItem("max-wishlist"));
+    for (let i = 0; i < wislistItem.length; i++) {
+      console.log("hello");
+      if (ele.product_id === wislistItem[i].product_id)
+        wislistItem.splice(i, 1);
     }
-    fetch(
-      "https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/quantity",
-      {
-        method: "PATCH",
-        body: JSON.stringify({
-          quantity: e.target.value,
-          user_id: ele.user_id,
-          product_id: ele.product_id,
-        }),
-        headers: { "content-type": "application/json" },
-      }
-    )
-      .then((res) => res.json())
-      .then(async (data) => {
-        const { message, error } = await data;
-        if (!error) {
-          fetch(
-            `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${store.AppReducer.user._id}`
-          )
-            .then((res) => res.json())
-            .then((data) => {
-              console.log(e.target.value);
-              dispatch(action.set_cart(data));
-            });
-
-          toastIdRef.current = toast({
-            position: "bottom",
-            title: message,
-            status: "success",
-            duration: 3000,
-            isClosable: true,
-          });
-        } else if (error) {
-          toastIdRef.current = toast({
-            position: "bottom",
-            title: message,
-            status: "error",
-            duration: 3000,
-            isClosable: true,
-          });
-        }
-      });
+    localStorage.setItem("max-wishlist", JSON.stringify(wislistItem));
+    setWishlist(wislistItem);
   };
 
-  const handle_delete = () => {
-    fetch(
-      `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${ele.user_id}/${ele.product_id}`,
-      { method: "DELETE" }
-    )
+  const handle_move_to_basket = () => {
+    fetch("https://arcane-oasis-69173.herokuapp.com/max-fashion/cart", {
+      method: "POST",
+      body: JSON.stringify(ele),
+      headers: { "content-type": "application/json" },
+    })
       .then((res) => res.json())
       .then(async (data) => {
         const { message, error } = await data;
         if (!error) {
           fetch(
-            `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${store.AppReducer.user._id}`
+            `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${user_id}`
           )
             .then((res) => res.json())
             .then((data) => {
@@ -97,13 +58,7 @@ const CartCard = ({ ele }) => {
           });
         }
       });
-  };
-
-  const handle_wishlist = () => {
-    handle_delete();
-    const wishlist = JSON.parse(localStorage.getItem("max-wishlist")) || [];
-    wishlist.push(ele)
-    localStorage.setItem("max-wishlist",JSON.stringify(wishlist));
+    handle_remove_wishlist_item();
   };
 
   return (
@@ -153,28 +108,18 @@ const CartCard = ({ ele }) => {
           Delivery in{" "}
           <span style={{ color: "black", marginLeft: "6px" }}> 5-7 days</span>
         </p>
-        <div style={{ marginTop: "-10px" }}>
-          <select onChange={handle_quantity} value={qty} name="qty" id="qty">
-            <option value="1">Qty: 1</option>
-            <option value="2">Qty: 2</option>
-            <option value="3">Qty: 3</option>
-            <option value="4">Qty: 4</option>
-            <option value="5">Qty: 5</option>
-          </select>
-          <span className="material-icons">arrow_drop_down</span>
-        </div>
       </flex>
       <hr />
       <div>
         <div>
-          <p onClick={handle_delete}>Remove</p>
+          <p onClick={handle_remove_wishlist_item}>Remove</p>
         </div>
         <div>
-          <p onClick={handle_wishlist}>Move to Favourites</p>
+          <p onClick={handle_move_to_basket}>Move to Basket</p>
         </div>
       </div>
     </div>
   );
 };
 
-export default CartCard;
+export default WishlistCard;

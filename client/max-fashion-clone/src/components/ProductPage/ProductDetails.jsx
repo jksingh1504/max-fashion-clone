@@ -15,13 +15,14 @@ const ProductDetails = () => {
   const toast = useToast();
   const product_size = useSelector((store) => store.AppReducer.product_size);
   const { _id: user_id } = useSelector((store) => store.AppReducer.user);
-  console.log(product);
+  // console.log(product);
 
   const handle_add_to_cart = (ele) => {
+    if (toastIdRef.current) {
+      toast.close(toastIdRef.current);
+    }
     if (product_size === "" || !ele.size.includes(product_size)) {
-      if (toastIdRef.current) {
-        toast.close(toastIdRef.current);
-      }
+      
       toastIdRef.current = toast({
         position: "bottom",
         title: "Please select product size",
