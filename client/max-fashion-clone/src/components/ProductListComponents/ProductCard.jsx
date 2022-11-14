@@ -43,8 +43,9 @@ const ProductCard = ({ ele }) => {
     cart_product.quantity = 1;
     cart_product.user_id = user_id;
     cart_product.size = [product_size];
+    console.log(cart_product)
 
-    fetch("https://arcane-oasis-69173.herokuapp.com/max-fashion/cart", {
+    fetch("https://max-fashion-clone-server.vercel.app/max-fashion/cart", {
       method: "POST",
       body: JSON.stringify(cart_product),
       headers: { "content-type": "application/json" },
@@ -54,7 +55,7 @@ const ProductCard = ({ ele }) => {
         const { message, error } = await data;
         if (!error) {
           fetch(
-            `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${user_id}`
+            `https://max-fashion-clone-server.vercel.app/max-fashion/cart/${user_id}`
           )
             .then((res) => res.json())
             .then((data) => {
@@ -102,7 +103,7 @@ const ProductCard = ({ ele }) => {
     >
       <div>
         <Link to={`/product?${ele._id}`}>
-          <img src={ele["jss17662 src"]} loading="lazy" alt="" />
+          <img src={ele["img_url"]} loading="lazy" alt="" />
         </Link>
         <span className="material-icons">favorite_border</span>
       </div>
@@ -113,7 +114,7 @@ const ProductCard = ({ ele }) => {
         {" " + ele.price}
         <span>{"(Brand: " + ele.brand + ")"}</span>
       </p>
-      <p style={{ marginLeft: "4px" }}>{ele.jss17663}</p>
+      <p style={{ marginLeft: "4px" }}>{ele.name}</p>
       <br />
       <div className="add_to_cart_section">
         <div>

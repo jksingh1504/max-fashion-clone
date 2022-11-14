@@ -22,7 +22,7 @@ const ProductList = () => {
     currenturl += "?" + window.location.href.split("?")[1];
 
     axios
-      .get(`https://arcane-oasis-69173.herokuapp.com/${currenturl}`)
+      .get(`https://max-fashion-clone-server.vercel.app/${currenturl}`)
       .then((res) => {
         setProducts(res.data);
         if (currenturl.split("?")[1] != "undefined") {

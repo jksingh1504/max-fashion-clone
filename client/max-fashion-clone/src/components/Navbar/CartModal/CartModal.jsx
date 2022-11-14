@@ -93,7 +93,7 @@ const CartModal = ({ setCartHeight, height = "0px" }) => {
                       <img
                         onClick={() => setCartHeight("0px")}
                         style={{ borderRadius: "3px", aspectRatio: 1 }}
-                        src={ele["jss17662 src"]}
+                        src={ele["img_url"]}
                         loading="lazy"
                         alt=""
                       />
@@ -139,7 +139,7 @@ const CartModal = ({ setCartHeight, height = "0px" }) => {
                           marginTop: "4px",
                         }}
                       >
-                        Max Men Graphic Print Boxers
+                        {ele["name"]}
                       </p>
 
                       <p

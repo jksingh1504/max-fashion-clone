@@ -24,7 +24,7 @@ const WishlistCard = ({ ele, setWishlist }) => {
   };
 
   const handle_move_to_basket = () => {
-    fetch("https://arcane-oasis-69173.herokuapp.com/max-fashion/cart", {
+    fetch("https://max-fashion-clone-server.vercel.app/max-fashion/cart", {
       method: "POST",
       body: JSON.stringify(ele),
       headers: { "content-type": "application/json" },
@@ -34,7 +34,7 @@ const WishlistCard = ({ ele, setWishlist }) => {
         const { message, error } = await data;
         if (!error) {
           fetch(
-            `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${user_id}`
+            `https://max-fashion-clone-server.vercel.app/max-fashion/cart/${user_id}`
           )
             .then((res) => res.json())
             .then((data) => {

@@ -39,7 +39,7 @@ const ProductDetails = () => {
     cart_product.user_id = user_id;
     cart_product.size = [product_size];
 
-    fetch("https://arcane-oasis-69173.herokuapp.com/max-fashion/cart", {
+    fetch("https://max-fashion-clone-server.vercel.app/max-fashion/cart", {
       method: "POST",
       body: JSON.stringify(cart_product),
       headers: { "content-type": "application/json" },
@@ -49,7 +49,7 @@ const ProductDetails = () => {
         const { message, error } = await data;
         if (!error) {
           fetch(
-            `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${user_id}`
+            `https://max-fashion-clone-server.vercel.app/max-fashion/cart/${user_id}`
           )
             .then((res) => res.json())
             .then((data) => {
@@ -78,7 +78,7 @@ const ProductDetails = () => {
     const product_id = window.location.href.split("/product?")[1];
     // console.log(product_id)
     fetch(
-      `https://arcane-oasis-69173.herokuapp.com/max-fashion/product/${product_id}`
+      `https://max-fashion-clone-server.vercel.app/max-fashion/product/${product_id}`
     )
       .then((res) => res.json())
       .then((data) => {

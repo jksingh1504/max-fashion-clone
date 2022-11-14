@@ -26,7 +26,7 @@ const Navbar = () => {
 
   useEffect(() => {
     fetch(
-      `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${user._id}`
+      `https://max-fashion-clone-server.vercel.app/max-fashion/cart/${user._id}`
     )
       .then((res) => res.json())
       .then((data) => {

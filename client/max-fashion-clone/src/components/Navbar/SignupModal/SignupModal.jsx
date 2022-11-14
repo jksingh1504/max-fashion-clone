@@ -61,7 +61,7 @@ const SignupModal = ({ props }) => {
     ) {
       delete form_data.current["confirm_pass"];
 
-      fetch("https://arcane-oasis-69173.herokuapp.com/max-fashion/signup", {
+      fetch("https://max-fashion-clone-server.vercel.app/max-fashion/signup", {
         method: "POST",
         body: JSON.stringify(form_data.current),
         headers: { "content-type": "application/json" },
@@ -90,7 +90,7 @@ const SignupModal = ({ props }) => {
           }
         });
     } else if (loginSignup === "login") {
-      fetch("https://arcane-oasis-69173.herokuapp.com/max-fashion/login", {
+      fetch("https://max-fashion-clone-server.vercel.app/max-fashion/login", {
         method: "POST",
         body: JSON.stringify(form_data.current),
         headers: { "content-type": "application/json" },

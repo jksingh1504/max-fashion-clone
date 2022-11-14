@@ -8,6 +8,7 @@ import * as action from "../../redux/AppRedux/action";
 import { Link } from "react-router-dom";
 
 const CartCard = ({ ele }) => {
+  console.log(ele)
   const [qty, setQty] = useState(ele.quantity);
   const toastIdRef = useRef(null);
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const CartCard = ({ ele }) => {
       toast.close(toastIdRef.current);
     }
     fetch(
-      "https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/quantity",
+      "https://max-fashion-clone-server.vercel.app/max-fashion/cart/quantity",
       {
         method: "PATCH",
         body: JSON.stringify({
@@ -114,13 +115,13 @@ const CartCard = ({ ele }) => {
             <img
               loading="lazy"
               style={{ height: "100%" }}
-              src={ele["jss17662 src"]}
+              src={ele["img_url"]}
               alt="product_img"
             />
           </Link>
         </div>
         <div style={{ marginTop: "-6px" }}>
-          <b>{ele.jss17663}</b>
+          <b>{ele.name}</b>
           <br />
           <b style={{ marginTop: "14px" }}>₹ {ele.price}</b>
           <flex
