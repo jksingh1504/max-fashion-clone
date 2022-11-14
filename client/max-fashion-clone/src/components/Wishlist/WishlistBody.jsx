@@ -3,7 +3,6 @@ import "../../stylesheets/Utilities/container.css";
 import "../../stylesheets/cartPage/cartPage.css";
 import WishlistCard from "./WishlistCard";
 import "../../stylesheets/wishlist/wishlist.css";
-import { useSelector } from "react-redux";
 import { useState } from "react";
 
 const WishlistBody = () => {

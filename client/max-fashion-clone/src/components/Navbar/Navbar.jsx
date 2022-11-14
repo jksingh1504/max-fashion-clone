@@ -12,6 +12,7 @@ import SignupModal from "./SignupModal/SignupModal";
 import { useDispatch, useSelector } from "react-redux";
 import * as action from "../../redux/AppRedux/action";
 import { useRef } from "react";
+import usePrivateRoute from "../Utilities/usePrivateRoute";
 
 const Navbar = () => {
   const [cartHeight, setCartHeight] = useState("0px");
@@ -21,6 +22,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams({});
   const activePage = useRef(searchParams.getAll("page")[0] || "women");
+  const { private_route } = usePrivateRoute();
 
   useEffect(() => {
     fetch(
@@ -128,7 +130,7 @@ const Navbar = () => {
             </b>
             <SignupModal props={{ isOpen, onOpen, onClose }} />
           </div>
-          <div>
+          <div onClick={() => private_route(onOpen, "/wishlist")}>
             <span
               style={{ display: "inline-block", marginTop: "6px" }}
               className="material-icons"
