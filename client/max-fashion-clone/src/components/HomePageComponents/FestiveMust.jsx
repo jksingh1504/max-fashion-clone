@@ -1,5 +1,6 @@
 import React from "react";
 import "../../stylesheets/HomePage/festiveMust.css";
+import {Link} from "react-router-dom"
 
 const FestiveMust = ({ activePage, home_page_data }) => {
   return (
@@ -12,7 +13,7 @@ const FestiveMust = ({ activePage, home_page_data }) => {
         <div>
           {home_page_data[activePage].festive_must.map((ele, indx) => (
             <div key={indx}>
-              <img loading="lazy" src={ele.img_url} alt="" />
+              <Link to={ele.link}><img loading="lazy" src={ele.img_url} alt="" /></Link>
               <h3>{ele.title}</h3>
             </div>
           ))}

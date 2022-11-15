@@ -15,7 +15,7 @@ const WishlistCard = ({ ele, setWishlist }) => {
   const handle_remove_wishlist_item = () => {
     const wislistItem = JSON.parse(localStorage.getItem("max-wishlist"));
     for (let i = 0; i < wislistItem.length; i++) {
-      console.log("hello");
+      // console.log("hello");
       if (ele.product_id === wislistItem[i].product_id)
         wislistItem.splice(i, 1);
     }
@@ -68,13 +68,13 @@ const WishlistCard = ({ ele, setWishlist }) => {
             <img
               loading="lazy"
               style={{ height: "100%" }}
-              src={ele["jss17662 src"]}
+              src={ele["img_url"]}
               alt="product_img"
             />
           </Link>
         </div>
         <div style={{ marginTop: "-6px" }}>
-          <b>{ele.jss17663}</b>
+          <b>{ele.name}</b>
           <br />
           <b style={{ marginTop: "14px" }}>₹ {ele.price}</b>
           <flex

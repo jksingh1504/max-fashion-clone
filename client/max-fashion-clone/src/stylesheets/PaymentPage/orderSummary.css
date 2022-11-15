@@ -44,6 +44,7 @@
 
 .sticky_div > .checkout_products > div img {
   height: 100%;
+  aspect-ratio: 1;
 }
 
 .sticky_div > .checkout_products > div span {

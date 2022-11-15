@@ -8,7 +8,6 @@ import * as action from "../../redux/AppRedux/action";
 import { Link } from "react-router-dom";
 
 const CartCard = ({ ele }) => {
-  console.log(ele)
   const [qty, setQty] = useState(ele.quantity);
   const toastIdRef = useRef(null);
   const dispatch = useDispatch();

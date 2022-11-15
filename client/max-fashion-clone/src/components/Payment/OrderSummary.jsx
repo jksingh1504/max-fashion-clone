@@ -14,10 +14,10 @@ const OrderSummary = () => {
         <div className="checkout_products">
           {cart.map((ele, indx) => (
             <div>
-              <img src={ele["jss17662 src"]} loading="lazy" alt="" />
+              <img src={ele["img_url"]} loading="lazy" alt="" />
               <div style={{ marginTop: "-4px" }}>
                 <span>MAX</span>
-                <p style={{ marginTop: "10px" }}>{ele.jss17663}</p>
+                <p style={{ marginTop: "10px" }}>{ele.name}</p>
                 <div
                   style={{
                     display: "flex",

@@ -95,10 +95,10 @@ const ProductDetails = () => {
       <div className="product_details">
         <div className="product_img">
           <div>
-            <img src={product["jss17662 src"]} alt="" />
+            <img src={product["img_url"]} alt="" />
           </div>
           <div>
-            <img src={product["jss17662 src"]} alt="" />
+            <img src={product["img_url"]} alt="" />
           </div>
           <div>
             <img
