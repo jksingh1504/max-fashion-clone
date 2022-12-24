@@ -132,7 +132,7 @@ MAX10 (for 10% Off)
 
 <h2>Demo</h2>
 
-[Click here to see the presentation video of this project]()
+[Click here to see the presentation video of this project](https://www.linkedin.com/posts/jyoti-kamal-singh_project-activity-7010879003037175808-74-8?utm_source=share&utm_medium=member_desktop)
 
 
 <br />
