@@ -37,7 +37,7 @@ const CartCard = ({ ele }) => {
         const { message, error } = await data;
         if (!error) {
           fetch(
-            `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${store.AppReducer.user._id}`
+            `https://max-fashion-clone-server.vercel.app/max-fashion/cart/${store.AppReducer.user._id}`
           )
             .then((res) => res.json())
             .then((data) => {
@@ -66,7 +66,7 @@ const CartCard = ({ ele }) => {
 
   const handle_delete = () => {
     fetch(
-      `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${ele.user_id}/${ele.product_id}`,
+      `https://max-fashion-clone-server.vercel.app/max-fashion/cart/${ele.user_id}/${ele.product_id}`,
       { method: "DELETE" }
     )
       .then((res) => res.json())
@@ -74,7 +74,7 @@ const CartCard = ({ ele }) => {
         const { message, error } = await data;
         if (!error) {
           fetch(
-            `https://arcane-oasis-69173.herokuapp.com/max-fashion/cart/${store.AppReducer.user._id}`
+            `https://max-fashion-clone-server.vercel.app/max-fashion/cart/${store.AppReducer.user._id}`
           )
             .then((res) => res.json())
             .then((data) => {
